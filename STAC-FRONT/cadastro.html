@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Prêmio STAC de Sustentabilidade</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="" name="keywords">
+  <meta content="" name="description">
+
+  <!-- Favicons -->
+  <link href="img/logo.png" rel="icon">
+  <link href="img/logo.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800" rel="stylesheet">
+
+  <!-- Bootstrap CSS File -->
+  <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Libraries CSS Files -->
+  <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="lib/animate/animate.min.css" rel="stylesheet">
+  <link href="lib/venobox/venobox.css" rel="stylesheet">
+  <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+  <!-- Main Stylesheet File -->
+  <link href="css/style.css" rel="stylesheet">
+
+
+</head>
+
+<body>
+<!--==========================
+      Contact Section
+    ============================-->
+    <section id="contact" class="section-bg wow fadeInUp">
+
+      <div class="container">
+
+        <div class="section-header">
+          <h2>Faça parte da equipe!</h2>
+        </div>
+
+
+        <div class="form">
+          <div id="sendmessage"></div> 
+          <div id="errormessage"></div>
+          <form action="https://stac-prd.us-east-1.elasticbeanstalk.com/user/cadastro" method="post" enctype="multipart/form-data" role="form" class="contactForm" id="contactForm">
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <input type="text" name="nomeCompleto" class="form-control" id="name" placeholder="Nome completo" data-rule="minlen:2" data-msg="Insira seu nome completo" />
+                <div class="validation"></div>
+              </div>
+              <div class="form-group col-md-6">
+                <input type="number" class="form-control" name="celular" id="phone" placeholder="Telefone para contato" data-rule="required" min="10000000000" max="99999999999" data-msg="Insira telefone para contato" />
+                <div class="validation"></div>
+              </div>
+              <div class="form-group col-md-6">
+                <input type="email" class="form-control" name="email" id="email" placeholder="E-mail" data-rule="email" data-msg="Insira seu email" />
+                <div class="validation"></div>
+              </div>
+              <div class="form-group col-md-6">
+                <input type="date" class="form-control" name="dataDeNascimento" id="date" placeholder="Data de nascimento" data-rule="required" data-msg="Insira sua data de nascimento" />
+                <div class="validation"></div>
+              </div>
+              <div class="form-group col-md-6">
+                <input type="number" class="form-control" name="rg" id="rg" placeholder="RG" data-rule="required" min="99999999" max="999999999" data-msg="Insira seu RG" />
+                <div class="validation"></div>
+              </div>
+              <div class="form-group col-md-6">
+                <input type="number" class="form-control" name="cep" id="cep" placeholder="CEP" data-rule="required" max="99999999" data-msg="Insira seu CEP" />
+                <div class="validation"></div>
+              </div>
+              <div class="form-group col-md-6">
+                <input type="text" class="form-control" name="nomeSocial" id="nsocial" placeholder="Nome social"/>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="doc">
+                  <input type="file" class="form-control" name="docConclusao" id="doc" accept="image/*" required/>
+                  Documento de comprovação da conclusão do Ensino Médio
+                </label>
+                <div class="validation"></div>
+              </div>
+              <div class="form-group col-md-6">
+                <input type="password" class="form-control" name="senha" id="senha" placeholder="Senha" data-rule="minlen:8" data-msg="Mínimo de 8 caracteres" />
+                <div class="validation"></div>
+              </div>
+              <div class="form-group col-md-6">
+                <input type="password" class="form-control" id="conf" placeholder="Confirme a senha" oninput="confirmPassword(event)"/>
+                <div class="validation"></div>
+              </div>
+            </div>
+            <div class="col-auto">
+              <center>
+                <button type="submit"> Cadastrar </button>
+              </center>
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </section><!-- #contact -->
+    <a href="#" class="back-to-top"><i class="fa fa-angle-up"></i></a>
+    <a href="#" class="back-to-top"><i class="fa fa-angle-up"></i></a>
+    <footer id="footer">
+      <div class="footer-top">
+        <div class="container">
+          <div class="row">
+
+            <div class="col-lg-3 col-md-6 footer-info">
+              <img src="img/logo.png" alt="TheEvenet">
+              <p>A Organização STAC  se trata de uma iniciativa sem fins lucrativos com um objetivo: Alavancar a ciência nacional e estimular os alunos da rede pública de ensino a desenvolverem projetos técnico-científicos atrelados ao desenvolvimento sustentável e que promovam impactos sociais abrangentes e benéficos. </p>
+            </div>
+
+            <div class="col-lg-3 col-md-6 footer-links">
+              <h4></h4>
+              <ul>
+                <li><i class="fa fa-angle-right"></i> <a href="index.html">Home</a></li>
+                <li><i class="fa fa-angle-right"></i> <a href="nossahist.html">Nossa História</a></li>
+                <li><i class="fa fa-angle-right"></i> <a href="objetivo.html">Nosso Objetivo</a></li>
+                <li><i class="fa fa-angle-right"></i> <a href="premio.html">Premio</a></li>
+              </ul>
+            </div>
+
+            <div class="col-lg-3 col-md-6 footer-contact">
+              <right><h4>Contate-nos</h4>
+              <p>
+                <strong>Email:</strong> secretariageral@stac-ibr.com<br>
+              </p></right>
+
+              <div class="social-links">
+                <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+                <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
+                <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
+                <a href="#" class="google-plus"><i class="fa fa-google-plus"></i></a>
+                <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="copyright">
+        </div>
+        <div class="credits">
+          Designed by Caroline Guerrero, Andrey Torres, Pedro Madeira e Vinícus Xavier
+        </div>
+      </div>
+    </footer><!-- #footer -->
+
+    <!-- JavaScript Libraries -->
+    <script src="lib/jquery/jquery.min.js"></script>
+    <script src="lib/jquery/jquery-migrate.min.js"></script>
+    <script src="lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/superfish/hoverIntent.js"></script>
+    <script src="lib/superfish/superfish.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/venobox/venobox.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Template Main Javascript File -->
+    <script src="js/user.js"></script>
+    <script src="js/main.js"></script>
+
+    <script>
+      
+      // Verifica se a senha confirmada é igual à digitada
+      function confirmPassword(e) {
+        let confPass = e.target.value;
+        let pass = $('#senha').val();
+        if (confPass !== pass)
+          $('#conf').next('.validation').show().text('As senhas precisam ser iguais');
+        else $('#conf').next('.validation').hide().text('');
+      }
+    </script>
+    
+    <!-- Contact Form JavaScript File -->
+    <script src="contactform/contactform.js"></script>
+  </body>
+</html>
