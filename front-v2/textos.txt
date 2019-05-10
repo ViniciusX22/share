@@ -1,0 +1,21 @@
+Nossa história:
+
+<figure class="image is-4by3">
+    <img src="img/speakers/historia.jpg" title="Integrantes do projeto exibindo o protótipo">
+</figure>
+
+<p>Um dia, três ex-alunos da ETEC Bento Quirino sonharam, outros juntaram-se, e assim nascera a Organização STAC, uma iniciativa de ex-alunos de escola pública que nasceu de um sonho e de um projeto inspirador.</p>
+
+<p>Num país como o nosso onde segmentos vitais como ciência e desenvolvimento sustentável têm pouco espaço, a ciência sustentável ganhou uma nova aliada: A Organização STAC.</p>
+
+<p>O nome da organização é uma homenagem ao projeto premiado, e reconhecido internacionalmente, dos três fundadores: Beatriz Ruscetto, Gabriel Trindade e Matheus Henrique: STAC-IBR (Sistema de Tratamento de Água em Cisternas Instaladas no Brasil), que assim como os valores do organização, visa compatibilizar ciência com desenvolvimento sustentável, incentivar a pesquisa nacional e, acima de tudo, produzir um impacto positivo na sociedade.</p>
+
+<p>Esperamos que a história da STAC inspire o caminho de muitos alunos diretamente para a concretização dos seus sonhos, tal como, diariamente, nos inspira.</p>
+
+Nosso objetivo:
+
+
+<figure class="image is-4by3">
+    <img src="img/gallery/1.jpeg" title="Dois dos integrantes do grupo tirando uma foto no momento de premiação da feira">
+</figure>
+<p>A Organização STAC  se trata de uma iniciativa sem fins lucrativos com um objetivo: Alavancar a ciência nacional e estimular os alunos da rede pública de ensino a desenvolverem projetos técnico-científicos atrelados ao desenvolvimento sustentável e que promovam impactos sociais abrangentes e benéficos. </p>

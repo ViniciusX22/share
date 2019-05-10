@@ -1,5 +1,160 @@
 @charset "utf-8";
+@import '../node_modules/bulma/sass/utilities/_all.sass';
+
+$navbar-item-img-max-height: 4rem;
+$navbar-height: 4rem;
+$navbar-item-color: white;
+$navbar-burger-color: $navbar-item-color; 
+$navbar-background-color: transparent;
+$navbar-item-hover-color: #102227;
+
 @import "../node_modules/bulma/bulma.sass";
 
-$navbar-item-img-max-height: 5rem;
-$navbar-height: 5rem;
+#sobre-area * [data-menu-ref] {
+    display: none;
+}
+
+#sobre-area .notification {
+    margin: 1em !important;
+}
+
+.section-area > div.hero-head > div { // Container do título "Sobre nós"
+    margin-top: 2em;
+}
+
+#sobre-area .hero-body {
+    padding-bottom: 0;
+}
+
+#sobre-area > div.hero-head hr { // Linha abaixo do título "Sobre nós"
+    margin-top: 4em;
+    margin-right: auto;
+    margin-left: auto;
+    background: $info;
+    width: 40%;
+}
+
+#sobre-area p { // Parágrafos da área Sobre nós
+    overflow: hidden;
+}
+
+#sobre-area .hero-body { // Div dos quadros
+    padding-top: 0;
+}
+
+#sobre-area .notification { // Quadros
+    transition-duration: 0.5s;
+}
+
+#sobre-area .notification:hover { // Quadros (hover)
+    cursor: pointer;
+    box-shadow: 3px 0px 12px $grey-lighter, -3px 0px 12px $grey-lighter, 0px 5px 8px $grey-lighter;
+    transform: scale(1.01);
+    transition-duration: 0.5s;
+}
+
+#sobre-area .notification .subtitle span { // Ver mais (premio e historia)
+    color: white;
+    font-weight: 450;
+    // text-decoration: underline dotted;
+}
+
+#sobre-area .notification.is-warning .subtitle span { // Ver mais (objetivo)
+    color: black;
+}
+
+// Quadros 1 e 2
+#sobre-area .notification.is-primary .subtitle, #sobre-area .notification.is-info .subtitle {
+    color: hsl(0, 0%, 92%);
+    transition-duration: 0.5s;
+}
+
+//  Quadros 1 e 2 (hover)
+#sobre-area .notification.is-primary .subtitle:hover, #sobre-area .notification.is-info .subtitle:hover {
+    color: $white;
+    transition-duration: 0.5s;
+}
+
+#sobre-area .notification.is-warning .subtitle { // Quadro 3
+    color: $grey-dark;
+    transition-duration: 0.5s;
+}
+
+#sobre-area .notification.is-warning .subtitle:hover { // Quadro 3 (hover)
+    color: $black;
+    transition-duration: 0.5s;
+}
+
+#calendario-area .table {
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.navbar, .navbar-item {
+    transition-duration: 0.5s;
+}
+
+.scrolled-text {
+    color: rgb(255, 255, 255);
+}
+
+.scrolled {
+    background-color: #102227;
+    box-shadow: 0px 5px 10px grey;
+}
+
+#inicio .hero-body {
+    background-color: rgba($color: #102227, $alpha: .5);
+}
+
+#inicio {
+    background-image: url('../img/sustentabilidade.png');
+    background-size: 100% 100%;
+}
+
+@media (max-width: 768px) {
+    .title-modified {
+        margin-bottom: 0em !important;
+    }
+}
+
+@media (min-width: 768px) {
+    .title-modified {
+        margin-bottom: -1em !important;
+    }
+}
+
+@media (min-width: $desktop) {
+    #inicio {
+        background-image: url('../img/sustentabilidade.png');
+        background-size: 100% 100%;
+        background-attachment: fixed;
+    }
+}
+
+@media (max-width: $desktop) {
+    #inicio {
+        background-image: url('../img/sustentabilidade.png');
+        background-size: 125% 100%;
+        background-position-x: 27%;
+        background-attachment: fixed;
+    }
+}
+
+@media (max-width: $tablet) {
+    #inicio {
+        background-image: url('../img/sustentabilidade.png');
+        background-size: 159% 100%;
+        background-position-x: 40%;
+        background-attachment: fixed;
+    }
+}
+
+@media (max-width: 400px) {
+    #inicio {
+        background-image: url('../img/sustentabilidade.png');
+        background-size: 197% 100%;
+        background-position-x: 45%;
+        background-attachment: fixed;
+    }
+}

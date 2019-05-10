@@ -27,41 +27,38 @@
             
             <div id="navbarBasicExample" class="navbar-menu">
                 <div class="navbar-end">
-                    <a class="navbar-item">
+                    <a class="navbar-item" onclick="goTo('#inicio')">
                         Início
                     </a>
-                    <a class="navbar-item">
-                        Sobre Nós
+                    <a class="navbar-item" onclick="goTo('#sobre-area')">
+                        Sobre nós
                     </a>
-                    <a class="navbar-item">
+                    <!-- <a class="navbar-item">
                         Galeria
-                    </a>
-                    <a class="navbar-item">
+                    </a> -->
+                    <a class="navbar-item" onclick="goTo('#calendario-area')">
                         Calendário
                     </a>
-                    <div class="navbar-item">
-                        
-                    </div>
                 </div>
             </div>
         </div>
     </nav>
-    <section class="hero is-light is-fullheight">
+    <section class="hero is-light is-fullheight" id="inicio">
         <div class="hero-body">
-            <div class="container has-text-centered">
+            <div class="container is-fluid">
                 <div class="columns is-8">
                     <div class="column">
-                        <p class="title is-1 is-uppercase">
+                        <p class="title is-1 is-uppercase has-text-white">
                                 Prêmio STAC <br>
                             de Sustentabilidade
                         </p>
-                        <p class="subtitle has-text-weight-bold">
+                        <p class="subtitle has-text-weight-bold has-text-white">
                             Ciência e Tecnologia fazendo a diferença
                         </p>
                     </div>
-                    <div class="column is-two-fifths">
-                        <p class="title">Login</p>
-                        <p class="subtitle">Entre ou cadastre-se</p>
+                    <div class="column is-two-fifths has-text-centered">
+                        <p class="title has-text-white">Login</p>
+                        <p class="subtitle has-text-white">Entre ou cadastre-se</p>
                         <div class="field">
                             <p class="control has-icons-left">
                                 <input class="input" type="number" placeholder="Inscrição">
@@ -95,58 +92,396 @@
             </div>
         </div>
     </section>
-    <section class="hero is-fullheight has-background-white has-text-centered">
+    <section class="hero is-fullheight-with-navbar has-background-white section-area" id="sobre-area">
+        <div class="hero-head">
+            <div class="container">
+                <p class="title is-2 has-text-centered is-uppercase">Sobre nós</p>
+                <hr>
+            </div>
+        </div>
         <div class="hero-body">
             <div class="container">
-                <p class="title is-2">Sobre Nós</p>
-                <div class="columns">
-                    <div class="column">
-                        <article class="message is-primary">
-                            <div class="message-body">
-                                <p class="title is-4">O Prêmio</p>
-                                <figure class="image is-4by3">
-                                    <img src="img/gallery/3.jpeg" title="Foto tirada dos ganhadores do Prêmio STAC de Sustentabilidade no ano de 2018">
-                                </figure>
-                                <p>O Prêmio STAC de Sustentabilidade é uma iniciativa da Organização STAC que visa incentivar e fomentar a pesquisa e a ciência entre os alunos do ensino médio de escolas da rede pública de ensino, premiando através de uma avaliação criteriosa, projetos desenvolvidos e apresentados pelos alunos que possuam relevância na área de desenvolvimento sustentável e produzam um impacto social abrangente e positivo.</p>
-                                <p> Num país como o Brasil, onde áreas fundamentais para o desenvolvimento socioeconômico como: Educação, Pesquisas aplicadas em ciência e tecnologia e Sustentabilidade têm pouco espaço, o Prêmio STAC  de Sustentabilidade nasce com o objetivo de incentivar a educação e pesquisa científica de modo a promover o desenvolvimento socioeconômico de uma maneira sustentável. </p>
+                <div class="tile is-ancestor">
+                    <div class="tile is-vertical">
+                        <div class="tile is-parent" data-menu="sobre">
+                            <div class="tile is-child notification is-primary" title="Clique para mais" data-menu-option="premio">
+                                <article class="media">
+                                    <figure class="media-left">        
+                                        <span class="icon">
+                                            <i class="fas fa-2x fa-award"></i>
+                                        </span>
+                                    </figure>
+                                    <div class="media-content">
+                                        <div class="content">
+                                            <p class="title is-4">O Prêmio</p>
+                                            <p class="subtitle is-6 is-italic">O Prêmio STAC de Sustentabilidade é uma iniciativa da Organização STAC que visa incentivar e fomentar a pesquisa e a ciência entre os alunos do ensino médio de escolas da rede pública de ensino, premiando através de uma avaliação criteriosa, projetos desenvolvidos... <span>Ver mais</span></p>
+                                        </div>
+                                    </div>
+                                </article>
                             </div>
-                        </article>
-                    </div>
-                    <div class="column">
-                        <article class="message is-info">
-                            <div class="message-body">
-                                <p class="title is-4">Nossa história</p>
-
-                                <figure class="image is-4by3">
-                                    <img src="img/speakers/historia.jpg" title="Integrantes do projeto exibindo o protótipo">
-                                </figure>
-
-                                <p>Um dia, três ex-alunos da ETEC Bento Quirino sonharam, outros juntaram-se, e assim nascera a Organização STAC, uma iniciativa de ex-alunos de escola pública que nasceu de um sonho e de um projeto inspirador.</p>
-
-                                <p>Num país como o nosso onde segmentos vitais como ciência e desenvolvimento sustentável têm pouco espaço, a ciência sustentável ganhou uma nova aliada: A Organização STAC.</p>
-
-                                <p>O nome da organização é uma homenagem ao projeto premiado, e reconhecido internacionalmente, dos três fundadores: Beatriz Ruscetto, Gabriel Trindade e Matheus Henrique: STAC-IBR (Sistema de Tratamento de Água em Cisternas Instaladas no Brasil), que assim como os valores do organização, visa compatibilizar ciência com desenvolvimento sustentável, incentivar a pesquisa nacional e, acima de tudo, produzir um impacto positivo na sociedade.</p>
-
-                                <p>Esperamos que a história da STAC inspire o caminho de muitos alunos diretamente para a concretização dos seus sonhos, tal como, diariamente, nos inspira.</p>
+                            <div class="tile is-child notification is-info" title="Clique para mais" data-menu-option="historia">
+                                <article class="media">
+                                    <figure class="media-left">
+                                        <span class="icon">
+                                            <i class="fas fa-2x fa-newspaper"></i>
+                                        </span>
+                                    </figure>
+                                    <div class="media-content">
+                                        <div class="content">
+                                            <p class="title is-4">Nossa história</p>
+                                            <p class="subtitle is-6 is-italic">
+                                                Um dia, três ex-alunos da ETEC Bento Quirino sonharam, outros juntaram-se, e assim nascera a Organização STAC, uma iniciativa de ex-alunos de escola pública que nasceu de um sonho e de um projeto inspirador.
+                                                <br>
+                                                Num país como o nosso onde segmentos... <span>Ver mais</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </article>
                             </div>
-                        </article> 
-                    </div>
-                    <div class="column">
-                        <article class="message is-link">
-                            <div class="message-body">
-                                <p class="title is-4">Nosso objetivo</p>
-                                <figure class="image is-4by3">
-                                    <img src="img/gallery/1.jpeg" title="Dois dos integrantes do grupo tirando uma foto no momento de premiação da feira">
-                                </figure>
-                                <p>A Organização STAC  se trata de uma iniciativa sem fins lucrativos com um objetivo: Alavancar a ciência nacional e estimular os alunos da rede pública de ensino a desenvolverem projetos técnico-científicos atrelados ao desenvolvimento sustentável e que promovam impactos sociais abrangentes e benéficos. </p>
+                            <div class="tile is-child notification is-warning" title="Clique para mais" data-menu-option="objetivo">
+                                <article class="media">
+                                    <figure class="media-left">
+                                        <span class="icon">
+                                                <i class="fas fa-2x fa-crosshairs"></i>
+                                        </span>
+                                    </figure>
+                                    <div class="media-content">
+                                        <div class="content">           
+                                            <p class="title is-4">Nosso objetivo</p>
+                                            <p class="subtitle is-6 is-italic">A Organização STAC se trata de uma iniciativa sem fins lucrativos com um objetivo: Alavancar a ciência nacional e estimular os alunos da rede pública de ensino a desenvolverem projetos técnico-científicos atrelados ao desenvolvimento sustentável e que promovam impactos... <span>Ver mais</span></p>
+                                        </div>
+                                    </div>
+                                </article>
                             </div>
-                        </article>
+                        </div>
+                        <div class="tile is-parent" data-menu-ref="sobre">
+                            <article class="tile is-child message is-primary" data-menu-target="premio">
+                                <div class="message-body has-text-justified">
+                                    <p>
+                                        O Prêmio STAC de Sustentabilidade é uma iniciativa da Organização STAC que visa incentivar e fomentar a pesquisa e a ciência entre os alunos do ensino médio de escolas da rede pública de ensino, premiando através de uma avaliação criteriosa, projetos desenvolvidos e apresentados pelos alunos que possuam relevância na área de desenvolvimento sustentável e produzam um impacto social abrangente e positivo.
+                                    </p>
+                                    <p>
+                                        Num país como o Brasil, onde áreas fundamentais para o desenvolvimento socioeconômico como: Educação, Pesquisas aplicadas em ciência e tecnologia e Sustentabilidade têm pouco espaço, o Prêmio STAC de Sustentabilidade nasce com o objetivo de incentivar a educação e pesquisa científica de modo a promover o desenvolvimento socioeconômico de uma maneira sustentável.
+                                    </p>
+                                </div>
+                            </article>
+                            <article class="tile is-child message is-info" data-menu-target="historia">
+                                <div class="message-body has-text-justified">
+                                    <p>Um dia, três ex-alunos da ETEC Bento Quirino sonharam, outros juntaram-se, e assim nascera a Organização STAC, uma iniciativa de ex-alunos de escola pública que nasceu de um sonho e de um projeto inspirador.</p>
+    
+                                    <p>Num país como o nosso onde segmentos vitais como ciência e desenvolvimento sustentável têm pouco espaço, a ciência sustentável ganhou uma nova aliada: A Organização STAC.</p>
+                                    
+                                    <p>O nome da organização é uma homenagem ao projeto premiado, e reconhecido internacionalmente, dos três fundadores: Beatriz Ruscetto, Gabriel Trindade e Matheus Henrique: STAC-IBR (Sistema de Tratamento de Água em Cisternas Instaladas no Brasil), que assim como os valores do organização, visa compatibilizar ciência com desenvolvimento sustentável, incentivar a pesquisa nacional e, acima de tudo, produzir um impacto positivo na sociedade.</p>
+                                    
+                                    <p>Esperamos que a história da STAC inspire o caminho de muitos alunos diretamente para a concretização dos seus sonhos, tal como, diariamente, nos inspira.</p>
+                                </div>
+                            </article>
+                            <article class="tile is-child message is-warning" data-menu-target="objetivo">
+                                <div class="message-body has-text-justified">
+                                    <p>A Organização STAC  se trata de uma iniciativa sem fins lucrativos com um objetivo: Alavancar a ciência nacional e estimular os alunos da rede pública de ensino a desenvolverem projetos técnico-científicos atrelados ao desenvolvimento sustentável e que promovam impactos sociais abrangentes e benéficos. </p>
+                                </div>
+                            </article>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+    <section class="hero is-fullwidth-with-navbar is-light section-area" id="calendario-area">
+        <div class="hero-head">
+            <div class="container">
+                <p class="title is-2 has-text-centered is-uppercase">Calendário oficial</p>
+                <hr>
+            </div>
+        </div>
+        <div class="hero-body">
+            <div class="container">
+                <div class="tile is-ancestor">
+                    <div class="tile is-parent">
+                        <div class="tile is-child box">
+                            <div class="content">
+                                <p class="title has-text-centered">1<sup>a</sup> Fase</p>    
+                                <ul>
+                                    <li>
+                                        23/04 até 10/05:<br>
+                                        Período de inscrição do candidato no site.
+                                    </li>
+                                    <li>23/04 até 11/05:<br> Período de realização do questionário pelo site.</li>
+                                    <li>11/05:<br> Prazo final para entrega do questionário.</li>
+                                    <li>13/05:<br>Resultado dos candidatos finalistas na 1ª Fase.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tile is-parent">
+                        <div class="tile is-child box">
+                            <div class="content">
+                                <p class="title has-text-centered">2<sup>a</sup> Fase</p>    
+                                <ul>
+                                    <li>
+                                        <span class="has-text-weight-semibold">1ª Etapa: Entevista</span>
+                                        <ul>
+                                            <li>14/05 até 19/05: <br>Liberação do formulário online de datas para entrevista.</li>
+                                            <li>20/05 até 24/05:<br> Realização das entrevistas</li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <span class="has-text-weight-semibold">2ª Etapa: Produção textual</span>
+                                        <ul>
+                                            <li>20/05 até 24/05:<br>Acesso aos formulários dos textos.</li>
+                                            <li>24/05:<br> Data final para a entrega dos textos pelo site.</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tile is-parent">
+                        <div class="tile is-child box has-text-centered">
+                            <div class="content">
+                                <p class="title">Resultados</p>
+                                <ul class="has-text-left">
+                                    <li>10/06: 1ª Chamada</li>
+                                    <li>11/06: 2ª Chamada</li>
+                                    <li>12/06: 3ª Chamada</li>
+                                    <li>13/06: 4ª Chamada</li>
+                                    <li>14/06: 5ª Chamada</li>
+                                    <li>15/06: Prazo máximo para a declaração de interesse por vaga</li>
+                                    <li>16/06: Lista final de convocados</li>
+                                </ul>
+                                <button class="button is-link" style="margin-top: 1em;" onclick="toggleModal()">Consulte aqui</button>
+                            </div>
+                        </div>
+                    </div>
+                        <!-- <table class="table calendar">
+                            <thead>
+                                <tr>
+                                    <td colspan="2" class="has-text-centered">
+                                        <span class="icon">
+                                            <i class="fas fa-caret-left"></i>
+                                        </span>
+                                    </td>
+                                    <th colspan="3" class="has-text-centered">Abril</th>
+                                    <td colspan="2" class="has-text-centered">
+                                        <span class="icon">
+                                            <i class="fas fa-caret-right"></i>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th class="has-text-centered">D</th>
+                                    <th class="has-text-centered">S</th>
+                                    <th class="has-text-centered">T</th>
+                                    <th class="has-text-centered">Q</th>
+                                    <th class="has-text-centered">Q</th>
+                                    <th class="has-text-centered">S</th>
+                                    <th class="has-text-centered">S</th>
+                                </tr>
+                            </thead>
+                            <tbody> -->
+                                <!------------ Abril ---------->
+                                <!-- <tr> 
+                                    <td class="has-text-centered has-text-grey-light">31</td>
+                                    <td class="has-text-centered">1</td>
+                                    <td class="has-text-centered">2</td>
+                                    <td class="has-text-centered">3</td>
+                                    <td class="has-text-centered">4</td>
+                                    <td class="has-text-centered">5</td>
+                                    <td class="has-text-centered">6</td>
+                                </tr>
+                                <tr>
+                                    <td class="has-text-centered">7</td>
+                                    <td class="has-text-centered">8</td>
+                                    <td class="has-text-centered">9</td>
+                                    <td class="has-text-centered">10</td>
+                                    <td class="has-text-centered">11</td>
+                                    <td class="has-text-centered">12</td>
+                                    <td class="has-text-centered">13</td>
+                                </tr>
+                                <tr>
+                                    <td class="has-text-centered">14</td>
+                                    <td class="has-text-centered">15</td>
+                                    <td class="has-text-centered">16</td>
+                                    <td class="has-text-centered">17</td>
+                                    <td class="has-text-centered">18</td>
+                                    <td class="has-text-centered">19</td>
+                                    <td class="has-text-centered">20</td>
+                                </tr>
+                                <tr>
+                                    <td class="has-text-centered">21</td>
+                                    <td class="has-text-centered">22</td>
+                                    <td class="has-text-centered">23</td>
+                                    <td class="has-text-centered">24</td>
+                                    <td class="has-text-centered">25</td>
+                                    <td class="has-text-centered">26</td>
+                                    <td class="has-text-centered">27</td>
+                                </tr>
+                                <tr>
+                                    <td class="has-text-centered">28</td>
+                                    <td class="has-text-centered">29</td>
+                                    <td class="has-text-centered">30</td>
+                                    <td class="has-text-centered has-text-grey-light">1</td>
+                                    <td class="has-text-centered has-text-grey-light">2</td>
+                                    <td class="has-text-centered has-text-grey-light">3</td>
+                                    <td class="has-text-centered has-text-grey-light">4</td>
+                                </tr>
+                                <tr>
+                                    <td class="has-text-centered has-text-grey-light">5</td>
+                                    <td class="has-text-centered has-text-grey-light">6</td>
+                                    <td class="has-text-centered has-text-grey-light">7</td>
+                                    <td class="has-text-centered has-text-grey-light">8</td>
+                                    <td class="has-text-centered has-text-grey-light">9</td>
+                                    <td class="has-text-centered has-text-grey-light">10</td>
+                                    <td class="has-text-centered has-text-grey-light">11</td>
+                                </tr> -->
+                                 <!-- <tr> 
+                                    <td class="has-text-centered has-text-grey-light">28</td>
+                                    <td class="has-text-centered is-info has-text-grey-light">29</td>
+                                    <td class="has-text-centered is-link has-text-grey-light">30</td>
+                                    <td class="has-text-centered is-link">1</td>
+                                    <td class="has-text-centered is-link">2</td>
+                                    <td class="has-text-centered is-info">3</td>
+                                    <td class="has-text-centered">4</td>
+                                </tr>
+                                <tr>
+                                    <td class="has-text-centered">5</td>
+                                    <td class="has-text-centered">6</td>
+                                    <td class="has-text-centered">7</td>
+                                    <td class="has-text-centered">8</td>
+                                    <td class="has-text-centered">9</td>
+                                    <td class="has-text-centered">10</td>
+                                    <td class="has-text-centered">11</td>
+                                </tr>
+                                <tr>
+                                    <td class="has-text-centered">12</td>
+                                    <td class="has-text-centered">13</td>
+                                    <td class="has-text-centered">14</td>
+                                    <td class="has-text-centered">15</td>
+                                    <td class="has-text-centered">16</td>
+                                    <td class="has-text-centered">17</td>
+                                    <td class="has-text-centered">18</td>
+                                </tr>
+                                <tr>
+                                    <td class="has-text-centered">19</td>
+                                    <td class="has-text-centered">20</td>
+                                    <td class="has-text-centered">21</td>
+                                    <td class="has-text-centered">22</td>
+                                    <td class="has-text-centered">23</td>
+                                    <td class="has-text-centered">24</td>
+                                    <td class="has-text-centered">25</td>
+                                </tr>
+                                <tr>
+                                    <td class="has-text-centered">26</td>
+                                    <td class="has-text-centered">27</td>
+                                    <td class="has-text-centered">28</td>
+                                    <td class="has-text-centered">29</td>
+                                    <td class="has-text-centered">30</td>
+                                    <td class="has-text-centered">31</td>
+                                    <td class="has-text-centered has-text-grey-light">1</td>
+                                </tr>
+                                <tr>
+                                    <td class="has-text-centered has-text-grey-light">2</td>
+                                    <td class="has-text-centered has-text-grey-light">3</td>
+                                    <td class="has-text-centered has-text-grey-light">4</td>
+                                    <td class="has-text-centered has-text-grey-light">5</td>
+                                    <td class="has-text-centered has-text-grey-light">6</td>
+                                    <td class="has-text-centered has-text-grey-light">7</td>
+                                    <td class="has-text-centered has-text-grey-light">8</td>
+                                </tr>
+                                <tr>
+                                    <td class="has-text-centered has-text-grey-light">26</td>
+                                    <td class="has-text-centered has-text-grey-light">27</td>
+                                    <td class="has-text-centered has-text-grey-light">28</td>
+                                    <td class="has-text-centered has-text-grey-light">39</td>
+                                    <td class="has-text-centered has-text-grey-light">30</td>
+                                    <td class="has-text-centered has-text-grey-light">31</td>
+                                    <td class="has-text-centered">1</td>
+                                </tr>
+                                <tr>
+                                    <td class="has-text-centered">2</td>
+                                    <td class="has-text-centered">3</td>
+                                    <td class="has-text-centered">4</td>
+                                    <td class="has-text-centered">5</td>
+                                    <td class="has-text-centered">6</td>
+                                    <td class="has-text-centered">7</td>
+                                    <td class="has-text-centered">8</td>
+                                </tr>
+                                <tr>
+                                    <td class="has-text-centered">9</td>
+                                    <td class="has-text-centered">10</td>
+                                    <td class="has-text-centered">11</td>
+                                    <td class="has-text-centered">12</td>
+                                    <td class="has-text-centered">13</td>
+                                    <td class="has-text-centered">14</td>
+                                    <td class="has-text-centered">15</td>
+                                </tr>
+                                <tr>
+                                    <td class="has-text-centered">16</td>
+                                    <td class="has-text-centered">17</td>
+                                    <td class="has-text-centered">18</td>
+                                    <td class="has-text-centered">19</td>
+                                    <td class="has-text-centered">20</td>
+                                    <td class="has-text-centered">21</td>
+                                    <td class="has-text-centered">22</td>
+                                </tr>
+                                <tr>
+                                    <td class="has-text-centered">23</td>
+                                    <td class="has-text-centered">24</td>
+                                    <td class="has-text-centered">25</td>
+                                    <td class="has-text-centered">26</td>
+                                    <td class="has-text-centered">27</td>
+                                    <td class="has-text-centered">28</td>
+                                    <td class="has-text-centered">29</td>
+                                </tr>
+                                <tr>
+                                    <td class="has-text-centered">30</td>
+                                    <td class="has-text-centered has-text-grey-light">1</td>
+                                    <td class="has-text-centered has-text-grey-light">2</td>
+                                    <td class="has-text-centered has-text-grey-light">3</td>
+                                    <td class="has-text-centered has-text-grey-light">4</td>
+                                    <td class="has-text-centered has-text-grey-light">5</td>
+                                    <td class="has-text-centered has-text-grey-light">6</td>
+                                </tr> -->
+                            <!-- </tbody>
+                        </table> -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="modal" id="resultados">
+        <div class="modal-background"></div>
+        <div class="modal-card">
+            <header class="modal-card-head">
+                <p class="modal-card-title">Resultados</p>
+                <button class="delete" aria-label="close" onclick="toggleModal()"></button>
+            </header>
+            <section class="modal-card-body">
+                <div class="field">
+                    <div class="control has-icons-left is-expanded">
+                        <div class="select is-fullwidth">
+                            <select>
+                                <option value="1">1<sup>a</sup> Chamada</option>
+                                <option value="2">2<sup>a</sup> Chamada</option>
+                                <option value="3">3<sup>a</sup> Chamada</option>
+                                <option value="4">4<sup>a</sup> Chamada</option>
+                                <option value="5">5<sup>a</sup> Chamada</option>
+                            </select>
+                        </div>
+                        <div class="icon is-small is-left">
+                            <i class="fas fa-list"></i>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <footer class="modal-card-foot has-text-centered">
+                <button class="button is-primary">Consultar</button>
+                <button class="button" onclick="toggleModal()">Cancelar</button>
+            </footer>
+            <button class="modal-close is-large" aria-label="close" onclick="toggleModal()"></button>
+        </div>        
+    </div>
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="js/menu-controller.js"></script>
     <script>
         $(document).ready(function() {
             // Check for click events on the navbar burger icon
@@ -158,6 +493,34 @@
 
             });
         });
+
+        // Muda cor da navbar de acordo com a posição da barra de rolagem
+        $(window).on('scroll', e => {
+            if ($(window).scrollTop() >= 60) {
+                $(".navbar").addClass('scrolled');
+                $('.navbar-item').addClass('scrolled-text');
+            } else {
+                $(".navbar").removeClass('scrolled');
+                $('.navbar-item').removeClass('scrolled-text');
+            }
+        });
+
+        function goTo(section) {
+            console.log($('.navbar-menu').hasClass('is-active'));
+            if ($('.navbar-menu').hasClass('is-active')){
+                $(".navbar-burger").toggleClass("is-active");
+                $(".navbar-menu").toggleClass("is-active");
+            }
+            $('body').animate({
+                scrollTop: $(section).offset().top - 80
+            }, 1000);
+            console.log($(section).offset());
+        }
+
+        function toggleModal() {
+            $('#resultados').toggleClass('is-active');
+            $('html').toggleClass('is-clipped');
+        }
     </script>
 </body>
 </html>
