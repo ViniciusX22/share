@@ -1,4 +1,4 @@
-// var menus = [];
+var previousTarget = null;
 window.onload = () => {
     
     for (let menu of document.querySelectorAll('[data-menu]')) {
@@ -12,20 +12,33 @@ window.onload = () => {
                 while (!targetOption.getAttribute('data-menu-option'))
                     targetOption = targetOption.parentElement;
 
-                if (newMenu.details.style.display != 'flex')
-                    newMenu.details.style.display = 'flex';
-                
-                newMenu.options.forEach(option => {
-                    option.querySelector('.subtitle').style.display = 'none';
-                    option.querySelector('.title').classList.add('title-modified');
-                });
+                if (targetOption == previousTarget) {
+                    newMenu.details.style.display = 'none';
+                    
+                    newMenu.options.forEach(option => {
+                        option.querySelector('.subtitle').style.display = 'block';
+                        option.querySelector('.title').classList.remove('title-modified');
+                    });
 
-                newMenu.targets.forEach(target => {
-                    if (target.getAttribute('data-menu-target') == targetOption.getAttribute('data-menu-option'))
-                        target.style.display = 'block';
-                    else
-                        target.style.display = 'none';
-                });
+                    previousTarget = null;
+                } else {    
+                    if (newMenu.details.style.display != 'flex')
+                        newMenu.details.style.display = 'flex';
+                    
+                    newMenu.options.forEach(option => {
+                        option.querySelector('.subtitle').style.display = 'none';
+                        option.querySelector('.title').classList.add('title-modified');
+                    });
+
+                    newMenu.targets.forEach(target => {
+                        if (target.getAttribute('data-menu-target') == targetOption.getAttribute('data-menu-option'))
+                            target.style.display = 'block';
+                        else
+                            target.style.display = 'none';
+                    });
+
+                    previousTarget = targetOption;
+                }
             })
         );
         // menus.push(newMenu);

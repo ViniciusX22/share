@@ -48,17 +48,17 @@
             <div class="container is-fluid">
                 <div class="columns is-8">
                     <div class="column">
-                        <p class="title is-1 is-uppercase has-text-white">
+                        <p class="title is-1 is-size-3-mobile is-uppercase has-text-white">
                                 Prêmio STAC <br>
                             de Sustentabilidade
                         </p>
-                        <p class="subtitle has-text-weight-bold has-text-white">
+                        <p class="subtitle is-size-6-mobile has-text-weight-bold has-text-white">
                             Ciência e Tecnologia fazendo a diferença
                         </p>
                     </div>
                     <div class="column is-two-fifths has-text-centered">
-                        <p class="title has-text-white">Login</p>
-                        <p class="subtitle has-text-white">Entre ou cadastre-se</p>
+                        <p class="title is-size-4-mobile has-text-white">Login</p>
+                        <p class="subtitle is-size-6-mobile has-text-white">Entre ou cadastre-se</p>
                         <div class="field">
                             <p class="control has-icons-left">
                                 <input class="input" type="number" placeholder="Inscrição">
@@ -95,7 +95,7 @@
     <section class="hero is-fullheight-with-navbar has-background-white section-area" id="sobre-area">
         <div class="hero-head">
             <div class="container">
-                <p class="title is-2 has-text-centered is-uppercase">Sobre nós</p>
+                <p class="title is-2 is-size-3-mobile has-text-centered is-uppercase">Sobre nós</p>
                 <hr>
             </div>
         </div>
@@ -190,7 +190,7 @@
     <section class="hero is-fullwidth-with-navbar is-light section-area" id="calendario-area">
         <div class="hero-head">
             <div class="container">
-                <p class="title is-2 has-text-centered is-uppercase">Calendário oficial</p>
+                <p class="title is-2 is-size-3-mobile has-text-centered is-uppercase">Calendário oficial</p>
                 <hr>
             </div>
         </div>
@@ -482,45 +482,6 @@
     </div>
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
     <script src="js/menu-controller.js"></script>
-    <script>
-        $(document).ready(function() {
-            // Check for click events on the navbar burger icon
-            $(".navbar-burger").click(function() {
-
-                // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
-                $(".navbar-burger").toggleClass("is-active");
-                $(".navbar-menu").toggleClass("is-active");
-
-            });
-        });
-
-        // Muda cor da navbar de acordo com a posição da barra de rolagem
-        $(window).on('scroll', e => {
-            if ($(window).scrollTop() >= 60) {
-                $(".navbar").addClass('scrolled');
-                $('.navbar-item').addClass('scrolled-text');
-            } else {
-                $(".navbar").removeClass('scrolled');
-                $('.navbar-item').removeClass('scrolled-text');
-            }
-        });
-
-        function goTo(section) {
-            console.log($('.navbar-menu').hasClass('is-active'));
-            if ($('.navbar-menu').hasClass('is-active')){
-                $(".navbar-burger").toggleClass("is-active");
-                $(".navbar-menu").toggleClass("is-active");
-            }
-            $('body').animate({
-                scrollTop: $(section).offset().top - 80
-            }, 1000);
-            console.log($(section).offset());
-        }
-
-        function toggleModal() {
-            $('#resultados').toggleClass('is-active');
-            $('html').toggleClass('is-clipped');
-        }
-    </script>
+    <script src="js/main.js"></script>
 </body>
 </html>
