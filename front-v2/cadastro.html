@@ -9,7 +9,7 @@
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
 </head>
 <body>
-    <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
+    <nav class="navbar scrolled is-dark-green" role="navigation" aria-label="main navigation">
         <div class="container">
             <div class="navbar-brand">
                 <a class="navbar-item" href="#">
@@ -23,16 +23,131 @@
                 </a>
             </div>
             
-            <div id="navbarBasicExample" class="navbar-menu">
+            <div class="navbar-menu">
                 <div class="navbar-end">
-                    <a class="navbar-item" href="index.html">
+                    <a class="navbar-item scrolled-text" href="index.html">
                         Início
                     </a>
                 </div>
             </div>
         </div>
     </nav>
-    
+   <section class="hero is-fullheight-with-navbar">
+        <div class="hero-body">
+            <div class="container">
+                <form action="https://stac-prd.us-east-1.elasticbeanstalk.com/user/cadastro" method="POST" enctype="multipart/form-data">
+                    <div class="field">
+                        <label for="nome" class="label">Nome completo</label>
+                        <div class="control">
+                            <input type="text" id="nome" name="nomeCompleto" class="input" placeholder="Digite seu nome" required>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label for="telefone" class="label">Telefone</label>
+                        <div class="control">
+                            <input type="tel" id="telefone" name="celular" class="input" placeholder="e.g. (99) 9999-9999" pattern="\(?\d{2}\)? ?\d{4,5}-?\d{4}" required>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label for="email" class="label">Email</label>
+                        <div class="control">
+                            <input type="email" id="email" name="email" class="input" placeholder="e.g. joao@stac.com" required>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label for="data-nasc" class="label">Data de nascimento</label>
+                        <div class="control">
+                            <input type="date" id="data-nasc" name="dataDeNascimento" class="input" required>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label for="rg" class="label">RG</label>
+                        <div class="control">
+                            <input type="text" id="rg" name="rg" class="input" placeholder="e.g. 12.345.678-90" required>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label for="cep" class="label">CEP</label>
+                        <div class="control">
+                            <input type="text" id="cep" name="cep" class="input" placeholder="e.g. 12345-678" required>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label for="nome-social" class="label">Nome social</label>
+                        <div class="control">
+                            <input type="text" id="nome-social" name="nomeSocial" class="input">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">
+                            Documento de conclusão
+                            <span class="icon is-small">
+                                <i class="fas fa-question-circle"></i>
+                            </span>
+                        </label>
+                        <div class="file">
+                            <label class="file-label">
+                                <input class="file-input" type="file" name="docConclusao" required>
+                                <span class="file-cta">
+                                    <span class="file-icon">
+                                        <i class="fas fa-upload"></i>
+                                    </span>
+                                    <span class="file-label">
+                                        Escolha um arquivo
+                                    </span>
+                                </span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div class="control has-text-centered">
+                            <input type="submit" class="button is-link" value="Cadastrar">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
     <script src="js/main.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('input').on('focusout', e => {
+                if (matches(e.target, ':valid') || 
+                    ($(e.target).attr('pattern') ? new RegExp($(e.target).attr('pattern')).test($(e.target).val()) : false)) {
+                    $(e.target).removeClass('is-danger');
+                } else if (matches(e.target, ':invalid') || 
+                           !($(e.target).attr('pattern') ? new RegExp($(e.target).attr('pattern')).test($(e.target).val()) : false)) {
+                    $(e.target).addClass('is-danger').removeClass('is-success');
+                }
+            });
+        });
+
+        function matches( node, selector ) { 
+            // Most modern browsers support the ".matches" method. However, IE9+ uses a
+            // non-standard method name. As such, we can fall-back to the IE version when
+            // the standard one doesn't exist and that should cover all the modern
+            // browsers that are in use.
+            // --
+            // READ MORE: https://developer.mozilla.org/en-US/docs/Web/API/Element/matches
+            var nativeMatches = ( node.matches || node.msMatchesSelector );
+
+            // CAUTION: If an invalid pseudo-selector is used in Firefox or IE, the
+            // browser will throw a SyntaxError, "is not a valid selector". It will do
+            // the same for .querySelector() as well, just an FYI.
+            try {
+
+                return( nativeMatches.call( node, selector ) );
+
+            } catch ( error ) {
+
+                // In the case of an error, we're going to assume it's a pseudo-selector
+                // issue and NOT a general support issue (since we don't care about
+                // really old browsers).
+                return( false );
+
+            }
+        }
+    </script>
 </body>
 </html>
