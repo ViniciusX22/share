@@ -2,10 +2,19 @@ var scrollPosition = 60;
 var burgerActive = windowScrolled = false;
 
 $(document).ready(function() {
-    // Check for click events on the navbar burger icon
+    // Atribuição de listenters para eventos dos elementos
+
     $(".navbar-burger").click(toggleNavbar);
+
+    $('input[name=resposta]').change(toggleNomeSocial);
+
     toggleNavBackground();
-    
+
+    // Desce a página para a sessão especificada na URL
+    if (location.href.endsWith('#sobre'))
+        goTo('#sobre-area');
+    else if (location.href.endsWith('#calendario'))
+        goTo('#calendario-area');
 });
 
 // Muda cor da navbar de acordo com a posição da barra de rolagem
@@ -45,11 +54,27 @@ function toggleNavBackground() {
     if (isAtPosition() && !windowScrolled || $('.navbar').hasClass('is-dark-green')) {
         $(".navbar").addClass('scrolled');
         $('.navbar-item').addClass('scrolled-text');
+        windowScrolled = true;
     } else if (!isAtPosition() && !burgerActive && !$('.navbar').hasClass('is-dark-green')) {
         $(".navbar").removeClass('scrolled');
         $('.navbar-item').removeClass('scrolled-text');
         windowScrolled = false;
     }
+}
+
+function toggleNomeSocial(e) {
+    console.log('mdou');
+    if ($(e.target).val() == 'sim') {
+        $("#nome-social").parent().css('display', 'block');
+    } else {
+        $("#nome-social").parent().css('display', 'none');
+    }
+}
+
+function showFileName(e) {
+    let filePath = $(e.target).val();
+    let fileName = filePath.substring(filePath.lastIndexOf('\\')+1);
+    $(e.target).parent().find('.file-name').text(fileName);
 }
 
 function isAtPosition() {

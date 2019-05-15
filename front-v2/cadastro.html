@@ -25,8 +25,17 @@
             
             <div class="navbar-menu">
                 <div class="navbar-end">
-                    <a class="navbar-item scrolled-text" href="index.html">
+                    <a class="navbar-item" href="index.html">
                         Início
+                    </a>
+                    <a class="navbar-item" href="#">
+                        Informações
+                    </a>
+                    <a class="navbar-item" href="index.html#sobre">
+                        Sobre nós
+                    </a>
+                    <a class="navbar-item" href="#">
+                        Contato
                     </a>
                 </div>
             </div>
@@ -35,79 +44,151 @@
    <section class="hero is-fullheight-with-navbar">
         <div class="hero-body">
             <div class="container">
+                <h1 class="title is-4 is-size-5-mobile has-text-centered is-uppercase">Ficha de inscrição para o processo seletivo de avaliadores para a 3<sup class="is-lowercase">a</sup> edição do prêmio stac de Sustentabilidade</h1>
+                <br>
+                <h2 class="subtitle is-6" id="obrigatorios">Campos marcados com <span class="has-text-danger">*</span> são obrigatórios</h2>
+                <br>
                 <form action="https://stac-prd.us-east-1.elasticbeanstalk.com/user/cadastro" method="POST" enctype="multipart/form-data">
-                    <div class="field">
-                        <label for="nome" class="label">Nome completo</label>
-                        <div class="control">
-                            <input type="text" id="nome" name="nomeCompleto" class="input" placeholder="Digite seu nome" required>
+                    <div class="field is-horizontal">
+                        <div class="field-label">
+                            <label for="nome" class="label">Nome completo <span class="has-text-danger">*</span></label>
+                        </div>
+                        <div class="field-body">
+                            <div class="field">
+                                <p class="control is-expanded">
+                                    <input type="text" id="nome" name="nomeCompleto" class="input" placeholder="Digite seu nome" required>
+                                </p>
+                            </div>
                         </div>
                     </div>
-                    <div class="field">
-                        <label for="telefone" class="label">Telefone</label>
-                        <div class="control">
-                            <input type="tel" id="telefone" name="celular" class="input" placeholder="e.g. (99) 9999-9999" pattern="\(?\d{2}\)? ?\d{4,5}-?\d{4}" required>
+                    <div class="field is-horizontal">
+                        <div class="field-label">
+                            <label class="label">Telefone e Email <span class="has-text-danger">*</span></label>
+                        </div>
+                        <div class="field-body">
+                            <div class="field has-addons">
+                                <div class="control">
+                                    <button class="button is-static">
+                                        +55
+                                    </button>
+                                </div>
+                                <div class="control is-expanded">
+                                    <input type="tel" id="telefone" name="celular" class="input" placeholder="e.g. (99) 9999-9999" pattern="\(?\d{2}\)?\s?\d?\s?\d{4}-?\d{4}" required>
+                                </div>
+                            </div>
+                            <div class="field">
+                                <div class="control is-expanded">
+                                    <input type="email" id="email" name="email" class="input" placeholder="e.g. joao@stac.com" required>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="field">
-                        <label for="email" class="label">Email</label>
-                        <div class="control">
-                            <input type="email" id="email" name="email" class="input" placeholder="e.g. joao@stac.com" required>
+                    <div class="field is-horizontal">
+                        <div class="field-label">
+                            <label for="data-nasc" class="label">Data de nascimento <span class="has-text-danger">*</span></label>
+                        </div>
+                        <div class="field-body">
+                            <div class="field">
+                                <div class="control">
+                                    <input type="date" id="data-nasc" name="dataDeNascimento" class="input" min="1919-12-31" max="2009-01-01" required>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="field">
-                        <label for="data-nasc" class="label">Data de nascimento</label>
-                        <div class="control">
-                            <input type="date" id="data-nasc" name="dataDeNascimento" class="input" required>
+                    <div class="field is-horizontal">
+                        <div class="field-label">
+                            <label for="rg" class="label">RG <span class="has-text-danger">*</span></label>
+                        </div>
+                        <div class="field-body">
+                            <div class="field">
+                                <div class="control">
+                                    <input type="text" id="rg" name="rg" class="input" placeholder="e.g. 12.345.678-9" pattern="\d{2}\.?\d{3}\.?\d{3}-?[A-Za-z0-9]" required>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="field">
-                        <label for="rg" class="label">RG</label>
-                        <div class="control">
-                            <input type="text" id="rg" name="rg" class="input" placeholder="e.g. 12.345.678-90" required>
+                    <div class="field is-horizontal">
+                        <div class="field-label">
+                            <label for="cep" class="label">CEP <span class="has-text-danger">*</span></label>
+                        </div>
+                        <div class="field-body">
+                            <div class="field">
+                                <div class="control">
+                                    <input type="text" id="cep" name="cep" class="input" placeholder="e.g. 12345-678" pattern="\d{5}-?\d{3}" required>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="field">
-                        <label for="cep" class="label">CEP</label>
-                        <div class="control">
-                            <input type="text" id="cep" name="cep" class="input" placeholder="e.g. 12345-678" required>
+                    <div class="field is-horizontal">
+                        <div class="field-label">
+                            <label for="nome-social" class="label">Nome social</label>
+                        </div>
+                        <div class="field-body">
+                            <div class="field">
+                                <div class="control">
+                                    <label class="radio">
+                                        <input type="radio" name="resposta" value="sim">
+                                        Sim
+                                    </label>
+                                    <label class="radio">
+                                        <input type="radio" name="resposta" value="nao" checked>
+                                        Não
+                                    </label>
+                                </div>
+                                <div class="control" style="display: none;">
+                                    <input type="text" id="nome-social" class="input" name="nomeSocial" placeholder="Digite seu nome social">
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="field">
-                        <label for="nome-social" class="label">Nome social</label>
-                        <div class="control">
-                            <input type="text" id="nome-social" name="nomeSocial" class="input">
-                        </div>
-                    </div>
-                    <div class="field">
-                        <label class="label">
-                            Documento de conclusão
-                            <span class="icon is-small">
-                                <i class="fas fa-question-circle"></i>
-                            </span>
-                        </label>
-                        <div class="file">
-                            <label class="file-label">
-                                <input class="file-input" type="file" name="docConclusao" required>
-                                <span class="file-cta">
-                                    <span class="file-icon">
-                                        <i class="fas fa-upload"></i>
-                                    </span>
-                                    <span class="file-label">
-                                        Escolha um arquivo
-                                    </span>
+                    <div class="field is-horizontal">
+                        <div class="field-label">
+                            <label class="label">
+                                Documento de conclusão <span class="has-text-danger">*</span>
+                                <span class="icon is-small">
+                                    <i class="fas fa-question-circle"></i>
                                 </span>
                             </label>
                         </div>
+                        <div class="field-body">
+                            <div class="field">
+                                <div class="file has-name is-boxed">
+                                    <label class="file-label">
+                                        <input class="file-input" type="file" onchange="showFileName(event)" name="docConclusao" required>
+                                        <span class="file-cta">
+                                            <span class="file-icon">
+                                                <i class="fas fa-upload"></i>
+                                            </span>
+                                            <span class="file-label">
+                                                Escolha um arquivo
+                                            </span>
+                                        </span>
+                                        <span class="file-name">Nenhum arquivo selecionado</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
                     </div>
+                    <br>
+                    <div class="field has-text-centered">
+                        <label class="checkbox has-text-weight-semibold">
+                            <input type="checkbox"
+                                   onchange="this.checked ? $('#enviar').attr({disabled: false, title: 'Enviar'}) : $('#enviar').attr({disabled: true, title: 'Aceite a condição acima para prosseguir'})">
+                            Atesto para os devidos fins que todas as informações fornecidas acima são verdadeiras
+                        </label>
+                    </div>
+                    <br>
                     <div class="field">
                         <div class="control has-text-centered">
-                            <input type="submit" class="button is-link" value="Cadastrar">
+                            <input type="submit" class="button is-link" id="enviar" value="EFETUAR INSCRIÇÃO" title="Aceite a condição acima para prosseguir" disabled>
                         </div>
                     </div>
                 </form>
             </div>
         </div>
     </section>
+    <script src="https://unpkg.com/popper.js"></script>
+    <script src="https://unpkg.com/tooltip.js"></script>
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
     <script src="js/main.js"></script>
     <script>

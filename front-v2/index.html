@@ -30,14 +30,14 @@
                     <a class="navbar-item" onclick="goTo('#inicio')">
                         Início
                     </a>
+                    <a class="navbar-item" onclick="goTo('#inicio')">
+                        Informações
+                    </a>
                     <a class="navbar-item" onclick="goTo('#sobre-area')">
                         Sobre nós
                     </a>
-                    <!-- <a class="navbar-item">
-                        Galeria
-                    </a> -->
-                    <a class="navbar-item" onclick="goTo('#calendario-area')">
-                        Calendário
+                    <a class="navbar-item" href="#">
+                        Contato
                     </a>
                 </div>
             </div>
@@ -46,19 +46,58 @@
     <section class="hero is-light is-fullheight" id="inicio">
         <div class="hero-body">
             <div class="container is-fluid">
-                <div class="columns is-8">
-                    <div class="column">
-                        <p class="title is-1 is-size-3-mobile is-uppercase has-text-white">
-                                Prêmio STAC <br>
-                            de Sustentabilidade
-                        </p>
-                        <p class="subtitle is-size-6-mobile has-text-weight-bold has-text-white">
-                            Ciência e Tecnologia fazendo a diferença
-                        </p>
+                <div class="columns is-vcentered">
+                    <div class="column tile is-ancestor">
+                        <div class="tile is-vertical">
+                            <div class="tile is-parent">
+                                <div class="tile is-child">
+                                    <h1 class="title is-1 is-size-3-mobile is-uppercase has-text-white">
+                                            Prêmio STAC <br>
+                                        de Sustentabilidade
+                                    </h1>
+                                    <h2 class="subtitle is-size-6-mobile has-text-weight-bold has-text-white">
+                                        Ciência e Tecnologia fazendo a diferença
+                                    </h2>
+                                </div>
+                            </div>
+                            <div class="tile">
+                                <div class="tile is-parent">
+                                    <div class="tile is-child box">
+                                        <h2 class="subtitle is-uppercase has-text-centered">
+                                            processo seletivo de avaliadores
+                                        </h2>
+                                        <h2 class="subtitle is-6 has-text-centered is-uppercase">
+                                            <a class="has-text-danger has-text-weight-bold" href="cadastro.html">faça aqui sua inscrição</a>
+                                        </h2>
+                                        <br>
+                                        <h2 class="subtitle is-6 has-text-centered is-uppercase">
+                                            <a class="has-text-link" href="#" onclick="goTo('#calendario-area')">
+                                                Consulte o calendário oficial
+                                            </a>
+                                            <br>
+                                            <a class="has-text-link" href="#">Consulte o edital oficial</a>
+                                        </h2>
+                                    </div>
+                                    <div class="is-divider-vertical"></div>
+                                    <div class="tile is-child box">
+                                        <h2 class="subtitle is-uppercase has-text-centered">Projetos participantes</h2>
+                                        <br>
+                                        <h2 class="subtitle is-6 has-text-centered is-uppercase">
+                                            <p class="has-text-weight-bold">inscrições em breve</p>
+                                        </h2>
+                                        <br>
+                                        <h2 class="subtitle is-6 is-uppercase has-text-centered">
+                                            Publicação do calendário e edital oficiais - 03/06
+                                        </h2>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="column is-two-fifths has-text-centered">
-                        <p class="title is-size-4-mobile has-text-white">Login</p>
-                        <p class="subtitle is-size-6-mobile has-text-white">Entre ou cadastre-se</p>
+                    <div class="column is-1"></div>
+                    <div class="column is-4 is-two-fifths has-text-centered">
+                        <p class="title is-size-4 is-size-5-mobile has-text-white is-uppercase">processo seletivo de avaliadores - acessar a área do candidato</p>
+                        <br>
                         <div class="field">
                             <p class="control has-icons-left">
                                 <input class="input" type="number" placeholder="Inscrição">
@@ -79,11 +118,6 @@
                             <p class="control">
                                 <a class="button is-primary">
                                 Entrar
-                                </a>
-                            </p>
-                            <p class="control">
-                                <a class="button" href="cadastro.html">
-                                Cadastrar
                                 </a>
                             </p>
                         </div>
@@ -190,7 +224,10 @@
     <section class="hero is-fullwidth-with-navbar is-light section-area" id="calendario-area">
         <div class="hero-head">
             <div class="container">
-                <p class="title is-2 is-size-3-mobile has-text-centered is-uppercase">Calendário oficial</p>
+                <p class="subtitle is-4 is-size-5-mobile is-uppercase has-text-centered">Processo seletivo de avaliadores</p>
+                <p class="title is-2 is-size-3-mobile has-text-centered is-uppercase">
+                    Calendário Oficial
+                </p>
                 <hr>
             </div>
         </div>

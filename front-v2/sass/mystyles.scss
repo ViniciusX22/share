@@ -7,12 +7,13 @@ $background-image: '../img/Capa-3_Edicao_STAC.jpg';
 $navbar-item-img-max-height: 4rem;
 $navbar-height: 4rem;
 $navbar-item-color: white;
-$navbar-burger-color: $navbar-item-color; 
+$navbar-burger-color: white; 
 $navbar-background-color: transparent;
 $navbar-item-hover-color: $dark-green;
 $navbar-burger-color: white;
 
 @import "../node_modules/bulma/bulma.sass";
+@import '../node_modules/bulma-extensions/bulma-divider/dist/css/bulma-divider.sass';
 
 #sobre-area * [data-menu-ref] {
     display: none;
@@ -115,9 +116,14 @@ $navbar-burger-color: white;
     background-color: rgba($color: $dark-green, $alpha: .5);
 }
 
-#inicio {
-    background-image: url($background-image);
-    background-size: 100% 100%;
+#inicio .tile.is-vertical > .tile {
+    margin-top: 3em;
+}
+
+#obrigatorios {
+    text-decoration: underline;
+    text-indent: 3em;
+    font-size: 0.9em;
 }
 
 @media (max-width: 768px) {
@@ -135,25 +141,30 @@ $navbar-burger-color: white;
 @media (min-width: $desktop) {
     #inicio {
         background-image: url($background-image);
-        background-size: 100% 100%;
+        background-size: 183% 100%;
         background-attachment: fixed;
+        background-position-x: 67%;
     }
 }
 
 @media (max-width: $desktop) {
     #inicio {
         background-image: url($background-image);
-        background-size: 125% 100%;
-        background-position-x: 27%;
+        background-size: 155% 100%;
+        background-position-x: 70%;
         background-attachment: fixed;
+    }
+    
+    #obrigatorios {
+        text-indent: 0em;
     }
 }
 
 @media (max-width: $tablet) {
     #inicio {
         background-image: url($background-image);
-        background-size: 159% 100%;
-        background-position-x: 40%;
+        background-size: 1292px 100%;
+        background-position-x: 77%;
         background-attachment: fixed;
     }
 }
@@ -161,8 +172,8 @@ $navbar-burger-color: white;
 @media (max-width: 400px) {
     #inicio {
         background-image: url($background-image);
-        background-size: 197% 100%;
-        background-position-x: 45%;
+        background-size: 1292px 100%;
+        background-position-x: 65%;
         background-attachment: fixed;
     }
 }
