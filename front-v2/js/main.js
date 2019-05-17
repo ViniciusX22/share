@@ -91,7 +91,7 @@ function goTo(section) {
     }, 1000);
 }
 
-function toggleModal() {
-    $('#resultados').toggleClass('is-active');
+function toggleModal(modal) {
+    $(modal).toggleClass('is-active');
     $('html').toggleClass('is-clipped');
 }

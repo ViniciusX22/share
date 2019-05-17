@@ -7,8 +7,6 @@
     <link rel="stylesheet" href="css/mystyles.css">
     <link href="img/logo.png" rel="icon">
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
-    <style>
-    </style>
 </head>
 <body>
     <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
@@ -30,13 +28,13 @@
                     <a class="navbar-item" onclick="goTo('#inicio')">
                         Início
                     </a>
-                    <a class="navbar-item" onclick="goTo('#inicio')">
+                    <a class="navbar-item" onclick="toggleModal('#infos')">
                         Informações
                     </a>
                     <a class="navbar-item" onclick="goTo('#sobre-area')">
                         Sobre nós
                     </a>
-                    <a class="navbar-item" href="#">
+                    <a class="navbar-item" onclick="goTo('.footer')">
                         Contato
                     </a>
                 </div>
@@ -98,29 +96,31 @@
                     <div class="column is-4 is-two-fifths has-text-centered">
                         <p class="title is-size-4 is-size-5-mobile has-text-white is-uppercase">processo seletivo de avaliadores - acessar a área do candidato</p>
                         <br>
-                        <div class="field">
-                            <p class="control has-icons-left">
-                                <input class="input" type="number" placeholder="Inscrição">
-                                <span class="icon is-small is-left">
-                                    <i class="fas fa-id-card"></i>
-                                </span>
-                            </p>
-                        </div>
-                        <div class="field">
-                            <p class="control has-icons-left">
-                                <input class="input" type="password" placeholder="Senha">
-                                <span class="icon is-small is-left">
-                                    <i class="fas fa-lock"></i>
-                                </span>
-                            </p>
-                        </div>
-                        <div class="field is-grouped is-grouped-centered">
-                            <p class="control">
-                                <a class="button is-primary">
-                                Entrar
-                                </a>
-                            </p>
-                        </div>
+                        <form method="POST" action="https://stac-prd.us-east-1.elasticbeanstalk.com/user/login" onsubmit="login(event)" id="loginForm">
+                            <div class="field">
+                                <p class="control has-icons-left">
+                                    <input class="input" type="number" placeholder="Inscrição">
+                                    <span class="icon is-small is-left">
+                                        <i class="fas fa-id-card"></i>
+                                    </span>
+                                </p>
+                            </div>
+                            <div class="field">
+                                <p class="control has-icons-left">
+                                    <input class="input" type="password" placeholder="Senha">
+                                    <span class="icon is-small is-left">
+                                        <i class="fas fa-lock"></i>
+                                    </span>
+                                </p>
+                            </div>
+                            <div class="field is-grouped is-grouped-centered">
+                                <p class="control">
+                                    <a class="button is-primary">
+                                    Entrar
+                                    </a>
+                                </p>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -148,7 +148,7 @@
                                     <div class="media-content">
                                         <div class="content">
                                             <p class="title is-4">O Prêmio</p>
-                                            <p class="subtitle is-6 is-italic">O Prêmio STAC de Sustentabilidade é uma iniciativa da Organização STAC que visa incentivar e fomentar a pesquisa e a ciência entre os alunos do ensino médio de escolas da rede pública de ensino, premiando através de uma avaliação criteriosa, projetos desenvolvidos... <span>Ver mais</span></p>
+                                            <p class="subtitle is-6 is-italic">O Prêmio STAC de Sustentabilidade é uma iniciativa da Organização STAC para a Ciência e Tecnologia que busca fomentar, em escolas de ensino médio da rede pública, a ciência e a tecnologia aplicadas ao desenvolvimento sustentável. O Prêmio STAC reconhece e premia, através de uma... <span>Ver mais</span></p>
                                         </div>
                                     </div>
                                 </article>
@@ -164,9 +164,7 @@
                                         <div class="content">
                                             <p class="title is-4">Nossa história</p>
                                             <p class="subtitle is-6 is-italic">
-                                                Um dia, três ex-alunos da ETEC Bento Quirino sonharam, outros juntaram-se, e assim nascera a Organização STAC, uma iniciativa de ex-alunos de escola pública que nasceu de um sonho e de um projeto inspirador.
-                                                <br>
-                                                Num país como o nosso onde segmentos... <span>Ver mais</span>
+                                                Num país como o Brasil onde segmentos vitais como ciência e desenvolvimento sustentável têm pouco espaço, a ciência sustentável ganhou uma nova aliada: A Organização STAC, uma iniciativa de ex-alunos de escola pública que nasceu de um sonho e de um projeto...<span>Ver mais</span>
                                             </p>
                                         </div>
                                     </div>
@@ -182,7 +180,11 @@
                                     <div class="media-content">
                                         <div class="content">           
                                             <p class="title is-4">Nosso objetivo</p>
-                                            <p class="subtitle is-6 is-italic">A Organização STAC se trata de uma iniciativa sem fins lucrativos com um objetivo: Alavancar a ciência nacional e estimular os alunos da rede pública de ensino a desenvolverem projetos técnico-científicos atrelados ao desenvolvimento sustentável e que promovam impactos... <span>Ver mais</span></p>
+                                            <p class="subtitle is-6 is-italic">
+                                                Através do Prêmio STAC de Sustentabilidade, a Organização STAC tem como
+                                                objetivo principal alavancar a ciência nacional e estimular a elaboração de
+                                                projetos de pesquisa técnico-científica aplicada ao desenvolvimento sustentável no ensino médio, que promova impactos... <span>Ver mais</span>
+                                            </p>
                                         </div>
                                     </div>
                                 </article>
@@ -192,27 +194,52 @@
                             <article class="tile is-child message is-primary" data-menu-target="premio">
                                 <div class="message-body has-text-justified">
                                     <p>
-                                        O Prêmio STAC de Sustentabilidade é uma iniciativa da Organização STAC que visa incentivar e fomentar a pesquisa e a ciência entre os alunos do ensino médio de escolas da rede pública de ensino, premiando através de uma avaliação criteriosa, projetos desenvolvidos e apresentados pelos alunos que possuam relevância na área de desenvolvimento sustentável e produzam um impacto social abrangente e positivo.
-                                    </p>
-                                    <p>
-                                        Num país como o Brasil, onde áreas fundamentais para o desenvolvimento socioeconômico como: Educação, Pesquisas aplicadas em ciência e tecnologia e Sustentabilidade têm pouco espaço, o Prêmio STAC de Sustentabilidade nasce com o objetivo de incentivar a educação e pesquisa científica de modo a promover o desenvolvimento socioeconômico de uma maneira sustentável.
+                                        O Prêmio STAC de Sustentabilidade é uma iniciativa da
+                                        Organização STAC para a Ciência e Tecnologia que busca fomentar, em
+                                        escolas de ensino médio da rede pública, a ciência e a tecnologia aplicadas ao
+                                        desenvolvimento sustentável. O Prêmio STAC reconhece e premia, através de
+                                        uma avaliação criteriosa, projetos desenvolvidos e apresentados pelos alunos
+                                        que produzam um impacto social abrangente, positivo e inovador dentro da
+                                        ótica dos ODS (Objetivos de Desenvolvimento Sustentável), um conjunto de
+                                        metas da Agenda 2030 para o Desenvolvimento Sustentável estabelecida pela
+                                        ONU (Organização das Nações Unidas). Dessa forma, o Prêmio STAC de
+                                        Sustentabilidade tem por objetivo incentivar a educação e a pesquisa científica
+                                        de modo a promover o desenvolvimento socioeconômico de uma maneira
+                                        sustentável.
                                     </p>
                                 </div>
                             </article>
                             <article class="tile is-child message is-info" data-menu-target="historia">
                                 <div class="message-body has-text-justified">
-                                    <p>Um dia, três ex-alunos da ETEC Bento Quirino sonharam, outros juntaram-se, e assim nascera a Organização STAC, uma iniciativa de ex-alunos de escola pública que nasceu de um sonho e de um projeto inspirador.</p>
-    
-                                    <p>Num país como o nosso onde segmentos vitais como ciência e desenvolvimento sustentável têm pouco espaço, a ciência sustentável ganhou uma nova aliada: A Organização STAC.</p>
-                                    
-                                    <p>O nome da organização é uma homenagem ao projeto premiado, e reconhecido internacionalmente, dos três fundadores: Beatriz Ruscetto, Gabriel Trindade e Matheus Henrique: STAC-IBR (Sistema de Tratamento de Água em Cisternas Instaladas no Brasil), que assim como os valores do organização, visa compatibilizar ciência com desenvolvimento sustentável, incentivar a pesquisa nacional e, acima de tudo, produzir um impacto positivo na sociedade.</p>
-                                    
-                                    <p>Esperamos que a história da STAC inspire o caminho de muitos alunos diretamente para a concretização dos seus sonhos, tal como, diariamente, nos inspira.</p>
+                                    <p>
+                                        Num país como o Brasil onde segmentos vitais como ciência e
+                                        desenvolvimento sustentável têm pouco espaço, a ciência sustentável ganhou
+                                        uma nova aliada: A Organização STAC, uma iniciativa de ex-alunos de escola
+                                        pública que nasceu de um sonho e de um projeto inspirador. O nome da
+                                        organização é uma homenagem ao projeto premiado, e reconhecido
+                                        internacionalmente, dos três fundadores: Beatriz Ruscetto, Gabriel Trindade e
+                                        Matheus Henrique: STAC-IBR (Sistema de Tratamento de Água em Cisternas
+                                        Instaladas no Brasil), que assim como os valores do organização, visa
+                                        compatibilizar ciência com desenvolvimento sustentável, incentivar a pesquisa
+                                        nacional e, acima de tudo, produzir um impacto positivo na sociedade.
+                                        Esperamos que a história da STAC inspire o caminho de muitos alunos
+                                        diretamente para a concretização dos seus sonhos, tal como, diariamente, nos
+                                        inspira.
+                                    </p>
                                 </div>
                             </article>
                             <article class="tile is-child message is-warning" data-menu-target="objetivo">
                                 <div class="message-body has-text-justified">
-                                    <p>A Organização STAC  se trata de uma iniciativa sem fins lucrativos com um objetivo: Alavancar a ciência nacional e estimular os alunos da rede pública de ensino a desenvolverem projetos técnico-científicos atrelados ao desenvolvimento sustentável e que promovam impactos sociais abrangentes e benéficos. </p>
+                                    <p>
+                                        Através do Prêmio STAC de Sustentabilidade, a Organização STAC tem como
+                                        objetivo principal alavancar a ciência nacional e estimular a elaboração de
+                                        projetos de pesquisa técnico-científica aplicada ao desenvolvimento
+                                        sustentável no ensino médio, que promova impactos sociais abrangentes e
+                                        positivos, contribuindo para a formação de cidadãos com senso crítico,
+                                        íntegros, preocupados com o meio ambiente e que possuam como bagagem
+                                        escolar um amplo rol de competências e habilidades nas mais diversas áreas
+                                        do conhecimento.
+                                    </p>
                                 </div>
                             </article>
                         </div>
@@ -286,7 +313,7 @@
                                     <li>15/06: Prazo máximo para a declaração de interesse por vaga</li>
                                     <li>16/06: Lista final de convocados</li>
                                 </ul>
-                                <button class="button is-link" style="margin-top: 1em;" onclick="toggleModal()">Consulte aqui</button>
+                                <button class="button is-link" style="margin-top: 1em;" onclick="toggleModal('#resultados')">Consulte aqui</button>
                             </div>
                         </div>
                     </div>
@@ -485,12 +512,16 @@
             </div>
         </div>
     </section>
+
+    <!------------ Modals ------------------>
+
+    <!-- Resultados -->
     <div class="modal" id="resultados">
         <div class="modal-background"></div>
         <div class="modal-card">
             <header class="modal-card-head">
                 <p class="modal-card-title">Resultados</p>
-                <button class="delete" aria-label="close" onclick="toggleModal()"></button>
+                <button class="delete" aria-label="close" onclick="toggleModal('#resultados')"></button>
             </header>
             <section class="modal-card-body">
                 <div class="field">
@@ -512,13 +543,138 @@
             </section>
             <footer class="modal-card-foot has-text-centered">
                 <button class="button is-link">Consultar</button>
-                <button class="button" onclick="toggleModal()">Cancelar</button>
+                <button class="button" onclick="toggleModal('#resultados')">Cancelar</button>
             </footer>
-            <button class="modal-close is-large" aria-label="close" onclick="toggleModal()"></button>
+            <button class="modal-close is-large" aria-label="close" onclick="toggleModal('#resultados')"></button>
         </div>        
     </div>
+
+    <!-- Informações -->
+    <div class="modal" id="infos">
+        <div class="modal-background"></div>
+        <div class="modal-card">
+            <header class="modal-card-head">
+                <p class="modal-card-title">3<sup>a</sup> Edição do Prêmio STAC de Sustentabilidade</p>
+                <button class="delete" aria-label="close" onclick="toggleModal('#infos')"></button>
+            </header>
+            <section class="modal-card-body">
+                <div class="columns">
+                    <div class="column">
+                        <h2 class="subtitle is-uppercase has-text-centered">
+                            processo seletivo de avaliadores
+                        </h2>
+                        <div class="box">
+                            <h2 class="subtitle is-6 has-text-centered is-uppercase">
+                                <a class="has-text-link" href="#" onclick="goTo('#calendario-area')">
+                                    Consulte o calendário oficial
+                                </a>
+                            </h2>
+                            <h2 class="subtitle is-6 has-text-centered is-uppercase">
+                                <a class="has-text-link" href="#">Consulte o edital oficial</a>
+                            </h2>
+                            <h2 class="subtitle is-6 has-text-centered is-uppercase">
+                                <a class="has-text-danger has-text-weight-bold" href="cadastro.html">faça aqui sua inscrição</a>
+                            </h2>
+                        </div>
+                    </div>
+                    <div class="is-divider-vertical"></div>
+                    <div class="column">
+                        <h2 class="subtitle is-uppercase has-text-centered">Projetos participantes</h2>
+                        <div class="box">
+                            <h2 class="subtitle is-6 is-uppercase has-text-centered">
+                                Consulte aqui o calendário oficial - em breve
+                            </h2>
+                            <h2 class="subtitle is-6 is-uppercase has-text-centered">
+                                Consulte aqui o edital oficial - em breve
+                            </h2>
+                            <h2 class="subtitle is-6 has-text-centered is-uppercase">
+                                <p class="has-text-weight-bold">faça aqui a inscrição do seu projeto</p>
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <footer class="modal-card-foot">
+                <button class="button is-success" onclick="toggleModal('#infos')">Ok</button>
+            </footer>
+        </div>
+        <button class="modal-close is-large" aria-label="close" onclick="toggleModal('#infos')"></button>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer has-background-darkgreen">
+        <div class="container">
+            <nav class="level">
+                <div class="level-left">
+                    <div class="level-item">
+                        <article class="media">
+                            <figure class="media-left">
+                                <p class="image is-48x48">
+                                    <img src="img/logo.png" alt="Logo STAC">
+                                </p>
+                            </figure>
+                            <div class="media-content">
+                                <div class="content">
+                                    <p class="subtitle is-4 has-text-white" style="line-height: 2.5em;">
+                                        Organização STAC
+                                    </p>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+                <div class="level-right">
+                    <div class="level-item">
+                        <table class="table has-background-darkgreen has-text-white">
+                            <thead>
+                                <tr>
+                                    <th class="has-text-white" colspan="3">Contate-nos</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th class="has-text-white">
+                                        E-mails
+                                    </th>
+                                    <th class="has-text-white" colspan="2">
+                                        Redes sociais
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <a class="has-text-white" title="Enviar e-mail" href="mailto:secretariageral@stac-ibr.com">secretariageral@stac-ibr.com</a>
+                                    </td>
+                                    <td>
+                                        <a class="icon" href="https://www.facebook.com/premio.stac" target="_blank">
+                                            <i class="fab fa-lg fa-facebook-f"></i>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a class="icon" href="https://www.instagram.com/premio.stac" target="_blank">
+                                            <i class="fab fa-lg fa-instagram"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <a class="has-text-white" title="Enviar e-mail" href="mailto:contato@stac-ibr.com">contato@stac-ibr.com</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <a class="has-text-white" title="Enviar e-mail" href="mailto:diretoria@stac-ibr.com">diretoria@stac-ibr.com</a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </footer>
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
     <script src="js/menu-controller.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/user.js"></script>
 </body>
 </html>

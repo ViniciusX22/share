@@ -12,7 +12,7 @@
     <nav class="navbar scrolled is-dark-green" role="navigation" aria-label="main navigation">
         <div class="container">
             <div class="navbar-brand">
-                <a class="navbar-item" href="#">
+                <a class="navbar-item" href="index.html">
                     <img src="img/logo.png" height="5rem" >
                 </a>
             
@@ -28,13 +28,13 @@
                     <a class="navbar-item" href="index.html">
                         Início
                     </a>
-                    <a class="navbar-item" href="#">
+                    <a class="navbar-item" onclick="toggleModal('#infos')">
                         Informações
                     </a>
                     <a class="navbar-item" href="index.html#sobre">
                         Sobre nós
                     </a>
-                    <a class="navbar-item" href="#">
+                    <a class="navbar-item" onclick="goTo('.footer')">
                         Contato
                     </a>
                 </div>
@@ -143,6 +143,24 @@
                     </div>
                     <div class="field is-horizontal">
                         <div class="field-label">
+                            <label for="senha" class="label">Senha</label>
+                        </div>
+                        <div class="field-body">
+                            <div class="field">
+                                <div class="control">
+                                    <input type="password" class="input" name="senha" id="senha" placeholder="Digite uma senha">
+                                </div>
+                            </div>
+                            <div class="field">
+                                <div class="control is-expanded">
+                                    <input type="password" class="input" id="confirma" placeholder="Confirme sua senha" oninput="confirmPassword(event)">
+                                </div>
+                                <p class="help is-danger"></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="field is-horizontal">
+                        <div class="field-label">
                             <label class="label">
                                 Documento de conclusão <span class="has-text-danger">*</span>
                                 <span class="icon is-small">
@@ -187,12 +205,140 @@
             </div>
         </div>
     </section>
+
+    <!-- Modal Informações -->
+    <div class="modal" id="infos">
+        <div class="modal-background"></div>
+        <div class="modal-card">
+            <header class="modal-card-head">
+                <p class="modal-card-title">3<sup>a</sup> Edição do Prêmio STAC de Sustentabilidade</p>
+                <button class="delete" aria-label="close" onclick="toggleModal('#infos')"></button>
+            </header>
+            <section class="modal-card-body">
+                <div class="columns">
+                    <div class="column">
+                        <h2 class="subtitle is-uppercase has-text-centered">
+                            processo seletivo de avaliadores
+                        </h2>
+                        <div class="box">
+                            <h2 class="subtitle is-6 has-text-centered is-uppercase">
+                                <a class="has-text-link" href="#" onclick="goTo('#calendario-area')">
+                                    Consulte o calendário oficial
+                                </a>
+                            </h2>
+                            <h2 class="subtitle is-6 has-text-centered is-uppercase">
+                                <a class="has-text-link" href="#">Consulte o edital oficial</a>
+                            </h2>
+                            <h2 class="subtitle is-6 has-text-centered is-uppercase">
+                                <a class="has-text-danger has-text-weight-bold" href="cadastro.html">faça aqui sua inscrição</a>
+                            </h2>
+                        </div>
+                    </div>
+                    <div class="is-divider-vertical"></div>
+                    <div class="column">
+                        <h2 class="subtitle is-uppercase has-text-centered">Projetos participantes</h2>
+                        <div class="box">
+                            <h2 class="subtitle is-6 is-uppercase has-text-centered">
+                                Consulte aqui o calendário oficial - em breve
+                            </h2>
+                            <h2 class="subtitle is-6 is-uppercase has-text-centered">
+                                Consulte aqui o edital oficial - em breve
+                            </h2>
+                            <h2 class="subtitle is-6 has-text-centered is-uppercase">
+                                <p class="has-text-weight-bold">faça aqui a inscrição do seu projeto</p>
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <footer class="modal-card-foot">
+                <button class="button is-success" onclick="toggleModal('#infos')">Ok</button>
+            </footer>
+        </div>
+        <button class="modal-close is-large" aria-label="close" onclick="toggleModal('#infos')"></button>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer has-background-darkgreen">
+        <div class="container">
+            <nav class="level">
+                <div class="level-left">
+                    <div class="level-item">
+                        <article class="media">
+                            <figure class="media-left">
+                                <p class="image is-48x48">
+                                    <img src="img/logo.png" alt="Logo STAC">
+                                </p>
+                            </figure>
+                            <div class="media-content">
+                                <div class="content">
+                                    <p class="subtitle is-4 has-text-white" style="line-height: 2.5em;">
+                                        Organização STAC
+                                    </p>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+                <div class="level-right">
+                    <div class="level-item">
+                        <table class="table has-background-darkgreen has-text-white">
+                            <thead>
+                                <tr>
+                                    <th class="has-text-white" colspan="3">Contate-nos</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th class="has-text-white">
+                                        E-mails
+                                    </th>
+                                    <th class="has-text-white" colspan="2">
+                                        Redes sociais
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <a class="has-text-white" title="Enviar e-mail" href="mailto:secretariageral@stac-ibr.com">secretariageral@stac-ibr.com</a>
+                                    </td>
+                                    <td>
+                                        <a class="icon" href="https://www.facebook.com/premio.stac" target="_blank">
+                                            <i class="fab fa-lg fa-facebook-f"></i>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a class="icon" href="https://www.instagram.com/premio.stac" target="_blank">
+                                            <i class="fab fa-lg fa-instagram"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <a class="has-text-white" title="Enviar e-mail" href="mailto:contato@stac-ibr.com">contato@stac-ibr.com</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <a class="has-text-white" title="Enviar e-mail" href="mailto:diretoria@stac-ibr.com">diretoria@stac-ibr.com</a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </footer>
     <script src="https://unpkg.com/popper.js"></script>
     <script src="https://unpkg.com/tooltip.js"></script>
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
     <script src="js/main.js"></script>
     <script>
         $(document).ready(function(){
+            $('#senha').on('focusout', e => {
+                $("#confirma").attr('pattern', $(e.target).val());
+            });
+            
             $('input').on('focusout', e => {
                 if (matches(e.target, ':valid') || 
                     ($(e.target).attr('pattern') ? new RegExp($(e.target).attr('pattern')).test($(e.target).val()) : false)) {
@@ -203,6 +349,15 @@
                 }
             });
         });
+
+        // Verifica se a senha confirmada é igual à digitada
+        function confirmPassword(e) {
+            let confPass = e.target.value;
+            let pass = $('#senha').val();
+            if (confPass !== pass)
+                $(e.target).parent().parent().find('.help').text('As senhas precisam ser iguais');
+            else $(e.target).parent().parent().find('.help').text('');
+        }
 
         function matches( node, selector ) { 
             // Most modern browsers support the ".matches" method. However, IE9+ uses a

@@ -7402,6 +7402,13 @@ label.panel-block {
   .is-divider-vertical.is-white-bis::before {
     border-left-color: #fafafa; }
 
+.has-background-darkgreen {
+  background-color: #102227; }
+
+.is-darkgreen {
+  background-color: #102227;
+  color: white; }
+
 #sobre-area * [data-menu-ref] {
   display: none; }
 
@@ -7486,6 +7493,24 @@ label.panel-block {
   text-decoration: underline;
   text-indent: 3em;
   font-size: 0.9em; }
+
+.footer .table td:nth-child(2) > .icon, .footer .table td:nth-child(3) > .icon {
+  color: white; }
+
+.footer .table td:nth-child(2) > .icon:hover {
+  color: #3273dc; }
+
+.footer .table td:nth-child(3) > .icon:hover {
+  background: -moz-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+  background: -webkit-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+  background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+  background-size: 65% 65%;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 50%; }
+
+.footer .table thead {
+  border-bottom: 2px solid #00d1b2; }
 
 @media (max-width: 768px) {
   .title-modified {
