@@ -7495,7 +7495,7 @@ label.panel-block {
   font-size: 0.9em; }
 
 #inicio .box {
-  background-color: rgba(255, 255, 255, 0.7); }
+  background-color: rgba(255, 255, 255, 0.75); }
 
 .footer .table td:nth-child(2) > .icon, .footer .table td:nth-child(3) > .icon {
   color: white; }
@@ -7514,6 +7514,9 @@ label.panel-block {
 
 .footer .table thead {
   border-bottom: 2px solid #00d1b2; }
+
+.footer {
+  padding-bottom: 2em; }
 
 @media (max-width: 768px) {
   .title-modified {

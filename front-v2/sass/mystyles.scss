@@ -136,7 +136,7 @@ $navbar-burger-color: white;
 }
 
 #inicio .box {
-    background-color: rgba($color: white, $alpha: 0.7);
+    background-color: rgba($color: white, $alpha: 0.75);
 }
 
 // Icones do Facebook e Instagram
@@ -162,6 +162,10 @@ $navbar-burger-color: white;
 
 .footer .table thead {
     border-bottom: 2px solid $primary;
+}
+
+.footer {
+    padding-bottom: 2em;
 }
 
 @media (max-width: 768px) {
