@@ -2,7 +2,7 @@
 @import '../node_modules/bulma/sass/utilities/_all.sass';
 
 $dark-green: #102227;
-$background-image: '../img/Capa-3_Edicao_STAC.jpg';
+$background-image: '../img/Tela de fundo site 2019.jpg';
 
 $navbar-item-img-max-height: 4rem;
 $navbar-height: 4rem;
@@ -135,6 +135,10 @@ $navbar-burger-color: white;
     font-size: 0.9em;
 }
 
+#inicio .box {
+    background-color: rgba($color: white, $alpha: 0.7);
+}
+
 // Icones do Facebook e Instagram
 .footer .table td:nth-child(2) > .icon, .footer .table td:nth-child(3) > .icon {
     color: $white;
@@ -175,39 +179,21 @@ $navbar-burger-color: white;
 @media (min-width: $desktop) {
     #inicio {
         background-image: url($background-image);
-        background-size: 183% 100%;
+        background-size: 100% 100%;
         background-attachment: fixed;
-        background-position-x: 67%;
+        background-position-x: center;
     }
 }
 
 @media (max-width: $desktop) {
     #inicio {
         background-image: url($background-image);
-        background-size: 155% 100%;
-        background-position-x: 70%;
+        background-size: 1200px 100%;
+        background-position-x: center;
         background-attachment: fixed;
     }
     
     #obrigatorios {
         text-indent: 0em;
-    }
-}
-
-@media (max-width: $tablet) {
-    #inicio {
-        background-image: url($background-image);
-        background-size: 1292px 100%;
-        background-position-x: 77%;
-        background-attachment: fixed;
-    }
-}
-
-@media (max-width: 400px) {
-    #inicio {
-        background-image: url($background-image);
-        background-size: 1292px 100%;
-        background-position-x: 65%;
-        background-attachment: fixed;
     }
 }

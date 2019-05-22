@@ -96,10 +96,10 @@
                     <div class="column is-4 is-two-fifths has-text-centered">
                         <p class="title is-size-4 is-size-5-mobile has-text-white is-uppercase">processo seletivo de avaliadores - acessar a área do candidato</p>
                         <br>
-                        <form method="POST" action="https://stac-prd.us-east-1.elasticbeanstalk.com/user/login" onsubmit="login(event)" id="loginForm">
+                        <form method="POST" action="http://stac-prd.us-east-1.elasticbeanstalk.com/login/login" onsubmit="login(event)" id="loginForm" style="display: none;">
                             <div class="field">
                                 <p class="control has-icons-left">
-                                    <input class="input" type="number" placeholder="Inscrição">
+                                    <input class="input" type="number" placeholder="Inscrição" name="inscricao" required>
                                     <span class="icon is-small is-left">
                                         <i class="fas fa-id-card"></i>
                                     </span>
@@ -107,7 +107,7 @@
                             </div>
                             <div class="field">
                                 <p class="control has-icons-left">
-                                    <input class="input" type="password" placeholder="Senha">
+                                    <input class="input" type="password" placeholder="Senha" name="senha" required>
                                     <span class="icon is-small is-left">
                                         <i class="fas fa-lock"></i>
                                     </span>
@@ -115,12 +115,14 @@
                             </div>
                             <div class="field is-grouped is-grouped-centered">
                                 <p class="control">
-                                    <a class="button is-primary">
+                                    <button class="button is-primary" type="submit" id="loginButton">
                                     Entrar
-                                    </a>
+                                    </button>
                                 </p>
                             </div>
                         </form>
+                        <a href="area-candidato/" class="button is-medium is-link" id="accessButton" style="display: none;">Acessar</a>
+                        <a class="button is-large is-loading is-text" id="loadingButton">Carregando</a>
                     </div>
                 </div>
             </div>
@@ -194,51 +196,21 @@
                             <article class="tile is-child message is-primary" data-menu-target="premio">
                                 <div class="message-body has-text-justified">
                                     <p>
-                                        O Prêmio STAC de Sustentabilidade é uma iniciativa da
-                                        Organização STAC para a Ciência e Tecnologia que busca fomentar, em
-                                        escolas de ensino médio da rede pública, a ciência e a tecnologia aplicadas ao
-                                        desenvolvimento sustentável. O Prêmio STAC reconhece e premia, através de
-                                        uma avaliação criteriosa, projetos desenvolvidos e apresentados pelos alunos
-                                        que produzam um impacto social abrangente, positivo e inovador dentro da
-                                        ótica dos ODS (Objetivos de Desenvolvimento Sustentável), um conjunto de
-                                        metas da Agenda 2030 para o Desenvolvimento Sustentável estabelecida pela
-                                        ONU (Organização das Nações Unidas). Dessa forma, o Prêmio STAC de
-                                        Sustentabilidade tem por objetivo incentivar a educação e a pesquisa científica
-                                        de modo a promover o desenvolvimento socioeconômico de uma maneira
-                                        sustentável.
+                                        O Prêmio STAC de Sustentabilidade é uma iniciativa da Organização STAC para a Ciência e Tecnologia que busca fomentar, em escolas de Ensino Médio da rede pública, a ciência e a tecnologia aplicadas ao desenvolvimento sustentável. O Prêmio STAC reconhece e premia, através de uma avaliação criteriosa, projetos desenvolvidos e apresentados pelos alunos que produzam um impacto social abrangente, positivo e inovador dentro das perspectivas dos ODS (Objetivos de Desenvolvimento Sustentável), um conjunto de metas da Agenda 2030 para o Desenvolvimento Sustentável estabelecida pela ONU (Organização das Nações Unidas). Dessa forma, o Prêmio STAC de Sustentabilidade tem por objetivo incentivar a educação e a pesquisa científica de modo a promover o desenvolvimento socioeconômico de uma maneira sustentável.
                                     </p>
                                 </div>
                             </article>
                             <article class="tile is-child message is-info" data-menu-target="historia">
                                 <div class="message-body has-text-justified">
                                     <p>
-                                        Num país como o Brasil onde segmentos vitais como ciência e
-                                        desenvolvimento sustentável têm pouco espaço, a ciência sustentável ganhou
-                                        uma nova aliada: A Organização STAC, uma iniciativa de ex-alunos de escola
-                                        pública que nasceu de um sonho e de um projeto inspirador. O nome da
-                                        organização é uma homenagem ao projeto premiado, e reconhecido
-                                        internacionalmente, dos três fundadores: Beatriz Ruscetto, Gabriel Trindade e
-                                        Matheus Henrique: STAC-IBR (Sistema de Tratamento de Água em Cisternas
-                                        Instaladas no Brasil), que assim como os valores do organização, visa
-                                        compatibilizar ciência com desenvolvimento sustentável, incentivar a pesquisa
-                                        nacional e, acima de tudo, produzir um impacto positivo na sociedade.
-                                        Esperamos que a história da STAC inspire o caminho de muitos alunos
-                                        diretamente para a concretização dos seus sonhos, tal como, diariamente, nos
-                                        inspira.
+                                        Num país como o Brasil, onde segmentos vitais como ciência e desenvolvimento sustentável têm pouca visibilidade, a ciência sustentável ganhou uma nova aliada: A Organização STAC. Uma iniciativa de ex-alunos de escola pública que nasceu de um sonho e de um projeto inspirador. O nome da organização é uma homenagem ao projeto premiado, e reconhecido internacionalmente, dos fundadores, Beatriz Ruscetto, Gabriel Trindade e Matheus Henrique: STAC-IBR (Sistema de Tratamento de Água em Cisternas Instaladas no Brasil), que assim como os valores do organização, visa compatibilizar ciência com desenvolvimento sustentável, incentivar a pesquisa nacional e, acima de tudo, produzir um impacto positivo na sociedade. Esperamos que a história da STAC inspire diretamente o caminho de muitos alunos para a concretização dos seus sonhos, tal como, diariamente, nos inspira.
                                     </p>
                                 </div>
                             </article>
                             <article class="tile is-child message is-warning" data-menu-target="objetivo">
                                 <div class="message-body has-text-justified">
                                     <p>
-                                        Através do Prêmio STAC de Sustentabilidade, a Organização STAC tem como
-                                        objetivo principal alavancar a ciência nacional e estimular a elaboração de
-                                        projetos de pesquisa técnico-científica aplicada ao desenvolvimento
-                                        sustentável no ensino médio, que promova impactos sociais abrangentes e
-                                        positivos, contribuindo para a formação de cidadãos com senso crítico,
-                                        íntegros, preocupados com o meio ambiente e que possuam como bagagem
-                                        escolar um amplo rol de competências e habilidades nas mais diversas áreas
-                                        do conhecimento.
+                                        Através do Prêmio STAC de Sustentabilidade, a Organização STAC tem como objetivo principal alavancar a ciência nacional e estimular a elaboração de projetos de pesquisa técnico-científica aplicada ao desenvolvimento sustentável que promovam impactos sociais abrangentes e positivos, contribuindo, assim, para a formação de alunos do Ensino Médio como cidadãos com senso crítico, íntegros, preocupados com o meio ambiente e que possuam uma bagagem escolar com um amplo rol de competências e habilidades nas mais diversas áreas do conhecimento.
                                     </p>
                                 </div>
                             </article>
@@ -267,12 +239,12 @@
                                 <p class="title has-text-centered">1<sup>a</sup> Fase</p>    
                                 <ul>
                                     <li>
-                                        23/04 até 10/05:<br>
-                                        Período de inscrição do candidato no site.
+                                        20/05 até 03/06:<br>
+                                        Período de inscrição no <span class="is-italic">site</span>.
                                     </li>
-                                    <li>23/04 até 11/05:<br> Período de realização do questionário pelo site.</li>
-                                    <li>11/05:<br> Prazo final para entrega do questionário.</li>
-                                    <li>13/05:<br>Resultado dos candidatos finalistas na 1ª Fase.</li>
+                                    <li>21/05 até 05/06:<br> Realização do questionário <span class="is-italic">online</span>.</li>
+                                    <li>05/06:<br> Prazo final para realização do questionário <span class="is-italic">online</span>.</li>
+                                    <li>09/06:<br> Divulgação da lista de aprovados na 1ª Fase.</li>
                                 </ul>
                             </div>
                         </div>
@@ -285,15 +257,17 @@
                                     <li>
                                         <span class="has-text-weight-semibold">1ª Etapa: Entevista</span>
                                         <ul>
-                                            <li>14/05 até 19/05: <br>Liberação do formulário online de datas para entrevista.</li>
-                                            <li>20/05 até 24/05:<br> Realização das entrevistas</li>
+                                            <li>10/06: <br>Liberação do formulário <span class="is-italic">online</span> para agendamento de entrevista.</li>
+                                            <li>10/06 até 14/06: <br>Período de agendamento <span class="is-italic">online</span> de entrevistas</li>
+                                            <li>17/06 até 28/06:<br> Período de realização das entrevistas</li>
                                         </ul>
                                     </li>
                                     <li>
                                         <span class="has-text-weight-semibold">2ª Etapa: Produção textual</span>
                                         <ul>
-                                            <li>20/05 até 24/05:<br>Acesso aos formulários dos textos.</li>
-                                            <li>24/05:<br> Data final para a entrega dos textos pelo site.</li>
+                                            <li>10/06: <br>Liberação de acesso à proposta de produção textual.</li>
+                                            <li>10/06 até 21/06:<br> Período para a realização da produção textual.</li>
+                                            <li>21/06:<br> Data final para a entrega da produção textual pelo <span class="is-italic">site</span></li>
                                         </ul>
                                     </li>
                                 </ul>
@@ -305,209 +279,19 @@
                             <div class="content">
                                 <p class="title">Resultados</p>
                                 <ul class="has-text-left">
-                                    <li>10/06: 1ª Chamada</li>
-                                    <li>11/06: 2ª Chamada</li>
-                                    <li>12/06: 3ª Chamada</li>
-                                    <li>13/06: 4ª Chamada</li>
-                                    <li>14/06: 5ª Chamada</li>
-                                    <li>15/06: Prazo máximo para a declaração de interesse por vaga</li>
-                                    <li>16/06: Lista final de convocados</li>
+                                    <li>08/07: 1ª Chamada</li>
+                                    <li>09/07: 2ª Chamada</li>
+                                    <li>10/07: 3ª Chamada</li>
+                                    <li>11/07: 4ª Chamada</li>
+                                    <li>12/07: 5ª Chamada</li>
+                                    <li>13/07: Declaração de interesse por vaga</li>
+                                    <li>15/07: Prazo máximo para a declaração de interesse por vaga</li>
+                                    <li>16/07: Lista final de convocados</li>
                                 </ul>
-                                <button class="button is-link" style="margin-top: 1em;" onclick="toggleModal('#resultados')">Consulte aqui</button>
+                                <button class="button is-link" style="margin-top: 5em;" onclick="toggleModal('#resultados')">Consulte aqui</button>
                             </div>
                         </div>
                     </div>
-                        <!-- <table class="table calendar">
-                            <thead>
-                                <tr>
-                                    <td colspan="2" class="has-text-centered">
-                                        <span class="icon">
-                                            <i class="fas fa-caret-left"></i>
-                                        </span>
-                                    </td>
-                                    <th colspan="3" class="has-text-centered">Abril</th>
-                                    <td colspan="2" class="has-text-centered">
-                                        <span class="icon">
-                                            <i class="fas fa-caret-right"></i>
-                                        </span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th class="has-text-centered">D</th>
-                                    <th class="has-text-centered">S</th>
-                                    <th class="has-text-centered">T</th>
-                                    <th class="has-text-centered">Q</th>
-                                    <th class="has-text-centered">Q</th>
-                                    <th class="has-text-centered">S</th>
-                                    <th class="has-text-centered">S</th>
-                                </tr>
-                            </thead>
-                            <tbody> -->
-                                <!------------ Abril ---------->
-                                <!-- <tr> 
-                                    <td class="has-text-centered has-text-grey-light">31</td>
-                                    <td class="has-text-centered">1</td>
-                                    <td class="has-text-centered">2</td>
-                                    <td class="has-text-centered">3</td>
-                                    <td class="has-text-centered">4</td>
-                                    <td class="has-text-centered">5</td>
-                                    <td class="has-text-centered">6</td>
-                                </tr>
-                                <tr>
-                                    <td class="has-text-centered">7</td>
-                                    <td class="has-text-centered">8</td>
-                                    <td class="has-text-centered">9</td>
-                                    <td class="has-text-centered">10</td>
-                                    <td class="has-text-centered">11</td>
-                                    <td class="has-text-centered">12</td>
-                                    <td class="has-text-centered">13</td>
-                                </tr>
-                                <tr>
-                                    <td class="has-text-centered">14</td>
-                                    <td class="has-text-centered">15</td>
-                                    <td class="has-text-centered">16</td>
-                                    <td class="has-text-centered">17</td>
-                                    <td class="has-text-centered">18</td>
-                                    <td class="has-text-centered">19</td>
-                                    <td class="has-text-centered">20</td>
-                                </tr>
-                                <tr>
-                                    <td class="has-text-centered">21</td>
-                                    <td class="has-text-centered">22</td>
-                                    <td class="has-text-centered">23</td>
-                                    <td class="has-text-centered">24</td>
-                                    <td class="has-text-centered">25</td>
-                                    <td class="has-text-centered">26</td>
-                                    <td class="has-text-centered">27</td>
-                                </tr>
-                                <tr>
-                                    <td class="has-text-centered">28</td>
-                                    <td class="has-text-centered">29</td>
-                                    <td class="has-text-centered">30</td>
-                                    <td class="has-text-centered has-text-grey-light">1</td>
-                                    <td class="has-text-centered has-text-grey-light">2</td>
-                                    <td class="has-text-centered has-text-grey-light">3</td>
-                                    <td class="has-text-centered has-text-grey-light">4</td>
-                                </tr>
-                                <tr>
-                                    <td class="has-text-centered has-text-grey-light">5</td>
-                                    <td class="has-text-centered has-text-grey-light">6</td>
-                                    <td class="has-text-centered has-text-grey-light">7</td>
-                                    <td class="has-text-centered has-text-grey-light">8</td>
-                                    <td class="has-text-centered has-text-grey-light">9</td>
-                                    <td class="has-text-centered has-text-grey-light">10</td>
-                                    <td class="has-text-centered has-text-grey-light">11</td>
-                                </tr> -->
-                                 <!-- <tr> 
-                                    <td class="has-text-centered has-text-grey-light">28</td>
-                                    <td class="has-text-centered is-info has-text-grey-light">29</td>
-                                    <td class="has-text-centered is-link has-text-grey-light">30</td>
-                                    <td class="has-text-centered is-link">1</td>
-                                    <td class="has-text-centered is-link">2</td>
-                                    <td class="has-text-centered is-info">3</td>
-                                    <td class="has-text-centered">4</td>
-                                </tr>
-                                <tr>
-                                    <td class="has-text-centered">5</td>
-                                    <td class="has-text-centered">6</td>
-                                    <td class="has-text-centered">7</td>
-                                    <td class="has-text-centered">8</td>
-                                    <td class="has-text-centered">9</td>
-                                    <td class="has-text-centered">10</td>
-                                    <td class="has-text-centered">11</td>
-                                </tr>
-                                <tr>
-                                    <td class="has-text-centered">12</td>
-                                    <td class="has-text-centered">13</td>
-                                    <td class="has-text-centered">14</td>
-                                    <td class="has-text-centered">15</td>
-                                    <td class="has-text-centered">16</td>
-                                    <td class="has-text-centered">17</td>
-                                    <td class="has-text-centered">18</td>
-                                </tr>
-                                <tr>
-                                    <td class="has-text-centered">19</td>
-                                    <td class="has-text-centered">20</td>
-                                    <td class="has-text-centered">21</td>
-                                    <td class="has-text-centered">22</td>
-                                    <td class="has-text-centered">23</td>
-                                    <td class="has-text-centered">24</td>
-                                    <td class="has-text-centered">25</td>
-                                </tr>
-                                <tr>
-                                    <td class="has-text-centered">26</td>
-                                    <td class="has-text-centered">27</td>
-                                    <td class="has-text-centered">28</td>
-                                    <td class="has-text-centered">29</td>
-                                    <td class="has-text-centered">30</td>
-                                    <td class="has-text-centered">31</td>
-                                    <td class="has-text-centered has-text-grey-light">1</td>
-                                </tr>
-                                <tr>
-                                    <td class="has-text-centered has-text-grey-light">2</td>
-                                    <td class="has-text-centered has-text-grey-light">3</td>
-                                    <td class="has-text-centered has-text-grey-light">4</td>
-                                    <td class="has-text-centered has-text-grey-light">5</td>
-                                    <td class="has-text-centered has-text-grey-light">6</td>
-                                    <td class="has-text-centered has-text-grey-light">7</td>
-                                    <td class="has-text-centered has-text-grey-light">8</td>
-                                </tr>
-                                <tr>
-                                    <td class="has-text-centered has-text-grey-light">26</td>
-                                    <td class="has-text-centered has-text-grey-light">27</td>
-                                    <td class="has-text-centered has-text-grey-light">28</td>
-                                    <td class="has-text-centered has-text-grey-light">39</td>
-                                    <td class="has-text-centered has-text-grey-light">30</td>
-                                    <td class="has-text-centered has-text-grey-light">31</td>
-                                    <td class="has-text-centered">1</td>
-                                </tr>
-                                <tr>
-                                    <td class="has-text-centered">2</td>
-                                    <td class="has-text-centered">3</td>
-                                    <td class="has-text-centered">4</td>
-                                    <td class="has-text-centered">5</td>
-                                    <td class="has-text-centered">6</td>
-                                    <td class="has-text-centered">7</td>
-                                    <td class="has-text-centered">8</td>
-                                </tr>
-                                <tr>
-                                    <td class="has-text-centered">9</td>
-                                    <td class="has-text-centered">10</td>
-                                    <td class="has-text-centered">11</td>
-                                    <td class="has-text-centered">12</td>
-                                    <td class="has-text-centered">13</td>
-                                    <td class="has-text-centered">14</td>
-                                    <td class="has-text-centered">15</td>
-                                </tr>
-                                <tr>
-                                    <td class="has-text-centered">16</td>
-                                    <td class="has-text-centered">17</td>
-                                    <td class="has-text-centered">18</td>
-                                    <td class="has-text-centered">19</td>
-                                    <td class="has-text-centered">20</td>
-                                    <td class="has-text-centered">21</td>
-                                    <td class="has-text-centered">22</td>
-                                </tr>
-                                <tr>
-                                    <td class="has-text-centered">23</td>
-                                    <td class="has-text-centered">24</td>
-                                    <td class="has-text-centered">25</td>
-                                    <td class="has-text-centered">26</td>
-                                    <td class="has-text-centered">27</td>
-                                    <td class="has-text-centered">28</td>
-                                    <td class="has-text-centered">29</td>
-                                </tr>
-                                <tr>
-                                    <td class="has-text-centered">30</td>
-                                    <td class="has-text-centered has-text-grey-light">1</td>
-                                    <td class="has-text-centered has-text-grey-light">2</td>
-                                    <td class="has-text-centered has-text-grey-light">3</td>
-                                    <td class="has-text-centered has-text-grey-light">4</td>
-                                    <td class="has-text-centered has-text-grey-light">5</td>
-                                    <td class="has-text-centered has-text-grey-light">6</td>
-                                </tr> -->
-                            <!-- </tbody>
-                        </table> -->
                 </div>
             </div>
         </div>
@@ -542,7 +326,7 @@
                 </div>
             </section>
             <footer class="modal-card-foot has-text-centered">
-                <button class="button is-link">Consultar</button>
+                <button class="button is-link" onclick="alert('Resultados não disponíveis no momento')">Consultar</button>
                 <button class="button" onclick="toggleModal('#resultados')">Cancelar</button>
             </footer>
             <button class="modal-close is-large" aria-label="close" onclick="toggleModal('#resultados')"></button>
@@ -595,7 +379,7 @@
                 </div>
             </section>
             <footer class="modal-card-foot">
-                <button class="button is-success" onclick="toggleModal('#infos')">Ok</button>
+                <button class="button is-success" style="margin-right: auto; margin-left: auto;" onclick="toggleModal('#infos')">Entendi</button>
             </footer>
         </div>
         <button class="modal-close is-large" aria-label="close" onclick="toggleModal('#infos')"></button>
@@ -676,5 +460,17 @@
     <script src="js/menu-controller.js"></script>
     <script src="js/main.js"></script>
     <script src="js/user.js"></script>
+    <script>
+        $(document).ready(() => {
+            if (localStorage.token) {
+                $("#accessButton").show();
+                $("#loginForm").hide();
+            } else {
+                $("#accessButton").hide();
+                $("#loginForm").show();
+            }
+            $("#loadingButton").hide();
+        })
+    </script>
 </body>
 </html>

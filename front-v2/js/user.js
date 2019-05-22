@@ -1,6 +1,8 @@
 function login(e) {
     e.preventDefault();
 
+    $("#loginButton").addClass('is-loading');
+
     let data = {};
     new FormData(e.target).forEach((value, key) => data[key] = value);
 
@@ -10,36 +12,34 @@ function login(e) {
       headers: {
         'Content-Type': 'application/json'
       }
-    }).then(response => {
-      response.body.getReader().read().then(({value}) => {
-        if (value) {
-          let jsonObj = JSON.parse(value.reduce((arr, n) => arr += String.fromCharCode(n), ''));
-          if (response.ok) {
+    })
+    .then(getBody) // Tenta obter o resultado de sucesso na requisição
+    .catch(result => { // Falha na requisição ou na obtenção dos valores de sucesso no getBody
+        if (!result.isGetBody) // Checa se é uma resposta da requisição ou da função getBody chamada no primeiro then
+            return getBody(result); // Tenta obter o resultado de falha na requisição
+        else { // Ao não obter o resultado (Sucesso na requisição)
+            console.log("Não foi possível obter os dados");
+        }
+    })
+    .then(response => { // Ao obter o resultado (Sucesso na requisição)
+        let jsonObj = JSON.parse(response.value);
+        if (response.ok) {
             alert("Sessão iniciada com sucesso");
-            $("#user-info-dropdown").fadeIn(2500);
-            localStorage.setItem('token', jsonObj.token);
-            loadUserOptions();
-          } else {
+            Object.keys(jsonObj).forEach(key => {
+                localStorage.setItem(key, jsonObj[key]);
+            });
+            location.href = 'area-candidato/';
+        } else {
             console.log(jsonObj.error);
             alert(jsonObj.message);
-          }
-        } else {
-          console.log(response.statusText);
-          alert("Ocorreu um erro na requisição. Tente novemente.");
         }
-      });
-    }).catch(response => {
-      response.body.getReader().read().then(({value}) => {
-        if (value) {
-          let jsonObj = JSON.parse(value.reduce((arr, n) => arr += String.fromCharCode(n), ''));
-          alert(jsonObj.message);
-          console.log(jsonObj.error);
-        } else {
+    }).catch(response => { // Ao não obter o resultado (Falha na requisição)
           console.log(response.statusText);
           alert("Um erro ocorreu. Tente novemente mais tarde.");
-        }
-      });
-    });
+    })
+    .finally(() => {
+        $("#loginButton").removeClass('is-loading');
+    })
 }
 
 function loadUserOptions() {
@@ -55,38 +55,38 @@ function loadUserOptions() {
             "Authorization": "Bearer " + localStorage.getItem('token')
         })
     })
-        .then(getBody)
-        .catch((result) => {
-            if (!result.isGetBody) // Checa se é uma resposta da requisição ou da função getBody chamada no primeiro then
-                return getBody(result);
-            else $("#user-options").html(optionsTemplate.with({value: "Falha ao carregar as opções"}));
-        })
-        .then(response => {
-            let status = JSON.parse(response.value);
-            if (typeof status == 'object') {
-                console.log(status.message);
-                $("#user-options").html(optionsTemplate.with({value: "Falha ao carregar as opções"}));
-            } else {
-                $("#user-options").html(`
-                    ${status.map(str =>
-                        optionsTemplate.with({value: str, link: str})
-                    ).join('')}
-                `);
-            }
-        })
-        .catch(response => {
-            console.log(response.statusText);
-            $("#user-options").html(optionsTemplate.with({value: "Falha ao carregar as opções"}))
-        })
-        .finally(() => {
-            $("#user-options").html($("#user-options").html() + '<button class="dropdown-item" onclick="logOut()">Sair</button>')
-        });
+    .then(getBody)
+    .catch((result) => {
+        if (!result.isGetBody) // Checa se é uma resposta da requisição ou da função getBody chamada no primeiro then
+            return getBody(result);
+        else $("#user-options").html(optionsTemplate.with({value: "Falha ao carregar as opções"}));
+    })
+    .then(response => {
+        let status = JSON.parse(response.value);
+        if (typeof status == 'object') {
+            console.log(status.message);
+            $("#user-options").html(optionsTemplate.with({value: "Falha ao carregar as opções"}));
+        } else {
+            $("#user-options").html(`
+                ${status.map(str =>
+                    optionsTemplate.with({value: str, link: str})
+                ).join('')}
+            `);
+        }
+    })
+    .catch(response => {
+        console.log(response.statusText);
+        $("#user-options").html(optionsTemplate.with({value: "Falha ao carregar as opções"}))
+    })
+    .finally(() => {
+        $("#user-options").html($("#user-options").html() + '<button class="dropdown-item" onclick="logOut()">Sair</button>')
+    });
 }
 
 function logOut() {
     if (confirm("Você será desconectado. Deseja continuar?")) {
         localStorage.removeItem('token');
-        location.reload();
+        location.href = '../';
     }
 }
 
@@ -117,7 +117,7 @@ function loadModal(service) {
 function setForm() {
     let form = $("#serviceModal").find('form');
 
-    fetch('https://stac-prd.us-east-1.elasticbeanstalk.com/user/action/dados', {
+    fetch('http://stac-prd.us-east-1.elasticbeanstalk.com/adm/cadastros/', {
         method: 'GET',
         headers: {
             "Authorization": "Bearer " + localStorage.getItem('token')
@@ -174,7 +174,7 @@ function confirmForm(e) {
         if ($(e.target).data("validation")){
             validate(e.target)
                 .then(processedValues => sendForm(e.target, processedValues))
-                .catch(() => showMessage('Há campos inválidos', true));
+                .catch(() => alert('Há campos inválidos'));
         } else {
             sendForm(e.target);
         }
@@ -206,37 +206,39 @@ function sendForm(form, values) {
         new FormData(form).forEach((value, key) => data[key] = value);
     }
 
+    $(form).find('[type=submit]').addClass('is-loading');
+
     fetch(form.action, {
         method: 'POST',
         body: JSON.stringify(data),
         headers: {
             'Content-Type': 'application/json',
-            "Authorization": "Bearer " + localStorage.getItem('token')
+            "Authorization": "Bearer " + localStorage.token
         }
     })
         .then(getBody) // Tenta obter o resultado de sucesso na requisição
         .catch(result => { // Falha na requisição ou na obtenção dos valores de sucesso no getBody
-            if (!result.isGetBody) {// Checa se é uma resposta da requisição ou da função getBody chamada no primeiro then
+            if (!result.isGetBody) { // Checa se é uma resposta da requisição ou da função getBody chamada no primeiro then
                 return getBody(result); // Tenta obter o resultado de falha na requisição
             }
             else { // Ao não obter o resultado (Sucesso na requisição)
-                showMessage('Falha ao obter resultados de envio.', true);
+                alert('Falha ao obter resultados de envio.');
             }
         })
         .then(response => { // Ao obter o resultado (Sucesso na requisição)
             let jsonObj = JSON.parse(response.value);
             if (response.ok) {
-                showMessage(jsonObj.message);
+                alert(jsonObj.message);
             } else {
                 console.log(jsonObj.error);
-                showMessage(jsonObj.message, true);
+                alert(jsonObj.message);
             }
         })
         .catch(response => { // Ao não obter o resultado (Falha na requisição)
             console.log(response.statusText);
-            showMessage("Um erro ocorreu. Tente novemente mais tarde.", true);
+            alert("Um erro ocorreu. Tente novemente mais tarde.");
         })
-        .finally(() => $('#serviceModal').animate({scrollTop : 0}, 2000, 'easeInOutExpo'));
+        .finally(() => $(form).find('[type=submit]').removeClass('is-loading'));
 }
 
 function showMessage(msg, error) {

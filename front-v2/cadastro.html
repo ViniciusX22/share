@@ -48,7 +48,7 @@
                 <br>
                 <h2 class="subtitle is-6" id="obrigatorios">Campos marcados com <span class="has-text-danger">*</span> são obrigatórios</h2>
                 <br>
-                <form action="https://stac-prd.us-east-1.elasticbeanstalk.com/user/cadastro" method="POST" enctype="multipart/form-data">
+                <form action="http://stac-prd.us-east-1.elasticbeanstalk.com/login/cadastro" method="POST" enctype="multipart/form-data">
                     <div class="field is-horizontal">
                         <div class="field-label">
                             <label for="nome" class="label">Nome completo <span class="has-text-danger">*</span></label>
@@ -73,12 +73,15 @@
                                     </button>
                                 </div>
                                 <div class="control is-expanded">
-                                    <input type="tel" id="telefone" name="celular" class="input" placeholder="e.g. (99) 9999-9999" pattern="\(?\d{2}\)?\s?\d?\s?\d{4}-?\d{4}" required>
+                                    <input type="tel" id="telefone" name="celular" class="input" placeholder="e.g. 11992941821" pattern="\d{11}" required>
                                 </div>
                             </div>
                             <div class="field">
-                                <div class="control is-expanded">
+                                <div class="control is-expanded has-icons-left">
                                     <input type="email" id="email" name="email" class="input" placeholder="e.g. joao@stac.com" required>
+                                    <span class="icon is-small is-left">
+                                        <i class="fas fa-envelope"></i>
+                                    </span>
                                 </div>
                             </div>
                         </div>
@@ -102,7 +105,7 @@
                         <div class="field-body">
                             <div class="field">
                                 <div class="control">
-                                    <input type="text" id="rg" name="rg" class="input" placeholder="e.g. 12.345.678-9" pattern="\d{2}\.?\d{3}\.?\d{3}-?[A-Za-z0-9]" required>
+                                    <input type="text" id="rg" name="rg" class="input" placeholder="e.g. 123456789" pattern="\d{8}[A-Za-z0-9]" required>
                                 </div>
                             </div>
                         </div>
@@ -114,7 +117,7 @@
                         <div class="field-body">
                             <div class="field">
                                 <div class="control">
-                                    <input type="text" id="cep" name="cep" class="input" placeholder="e.g. 12345-678" pattern="\d{5}-?\d{3}" required>
+                                    <input type="text" id="cep" name="cep" class="input" placeholder="e.g. 12345678" pattern="\d{8}" required>
                                 </div>
                             </div>
                         </div>
@@ -148,12 +151,12 @@
                         <div class="field-body">
                             <div class="field">
                                 <div class="control">
-                                    <input type="password" class="input" name="senha" id="senha" placeholder="Digite uma senha">
+                                    <input type="password" class="input" name="senha" id="senha" placeholder="De 8 a 50 caracteres" pattern=".{8,50}" required>
                                 </div>
                             </div>
                             <div class="field">
                                 <div class="control is-expanded">
-                                    <input type="password" class="input" id="confirma" placeholder="Confirme sua senha" oninput="confirmPassword(event)">
+                                    <input type="password" class="input" id="confirma" placeholder="Confirme sua senha" pattern=".{8,50}" oninput="confirmPassword(event)">
                                 </div>
                                 <p class="help is-danger"></p>
                             </div>
@@ -172,7 +175,7 @@
                             <div class="field">
                                 <div class="file has-name is-boxed">
                                     <label class="file-label">
-                                        <input class="file-input" type="file" onchange="showFileName(event)" name="docConclusao" required>
+                                        <input class="file-input" type="file" onchange="showFileName(event)" name="image" accept="image/*" required>
                                         <span class="file-cta">
                                             <span class="file-icon">
                                                 <i class="fas fa-upload"></i>
@@ -333,6 +336,7 @@
     <script src="https://unpkg.com/tooltip.js"></script>
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/user.js"></script>
     <script>
         $(document).ready(function(){
             $('#senha').on('focusout', e => {

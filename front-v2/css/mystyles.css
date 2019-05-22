@@ -7494,6 +7494,9 @@ label.panel-block {
   text-indent: 3em;
   font-size: 0.9em; }
 
+#inicio .box {
+  background-color: rgba(255, 255, 255, 0.7); }
+
 .footer .table td:nth-child(2) > .icon, .footer .table td:nth-child(3) > .icon {
   color: white; }
 
@@ -7522,30 +7525,16 @@ label.panel-block {
 
 @media (min-width: 1088px) {
   #inicio {
-    background-image: url("../img/Capa-3_Edicao_STAC.jpg");
-    background-size: 183% 100%;
+    background-image: url("../img/Tela de fundo site 2019.jpg");
+    background-size: 100% 100%;
     background-attachment: fixed;
-    background-position-x: 67%; } }
+    background-position-x: center; } }
 
 @media (max-width: 1088px) {
   #inicio {
-    background-image: url("../img/Capa-3_Edicao_STAC.jpg");
-    background-size: 155% 100%;
-    background-position-x: 70%;
+    background-image: url("../img/Tela de fundo site 2019.jpg");
+    background-size: 1200px 100%;
+    background-position-x: center;
     background-attachment: fixed; }
   #obrigatorios {
     text-indent: 0em; } }
-
-@media (max-width: 769px) {
-  #inicio {
-    background-image: url("../img/Capa-3_Edicao_STAC.jpg");
-    background-size: 1292px 100%;
-    background-position-x: 77%;
-    background-attachment: fixed; } }
-
-@media (max-width: 400px) {
-  #inicio {
-    background-image: url("../img/Capa-3_Edicao_STAC.jpg");
-    background-size: 1292px 100%;
-    background-position-x: 65%;
-    background-attachment: fixed; } }
