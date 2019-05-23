@@ -27,6 +27,7 @@
   },
   "dependencies": {
     "bulma-extensions": "^6.2.5",
+    "bulma-tooltip": "^2.0.2",
     "jquery": "^3.4.0"
   }
 }

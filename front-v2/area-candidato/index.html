@@ -63,19 +63,14 @@
                     </div>
                     <div class="column is-1"></div>
                     <div class="column is-three-fifths">
-                        <nav class="panel">
+                        <nav class="panel" id="actionsList">
                             <p class="panel-heading">
                                 Ações
                             </p>
                             <p class="panel-tabs">
                                 <a class="is-active">1° Fase</a>
                             </p>
-                            <a class="panel-block is-active" onclick="toggleModal('#actions')">
-                                <span class="panel-icon">
-                                <i class="fas fa-book" aria-hidden="true"></i>
-                                </span>
-                                 Responder questionário   
-                            </a>
+                            
                         </nav>
                     </div>
                     <div class="column is-1"></div>
@@ -94,7 +89,7 @@
             </header>
             <section class="modal-card-body">
                 <div class="content">
-                    <form action="http://stac-prd.us-east-1.elasticbeanstalk.com/respostas1/" onsubmit="confirmForm(event)" method="POST">
+                    <form action="http://stac-prd.us-east-1.elasticbeanstalk.com/perguntas/1" onsubmit="confirmForm(event)" method="POST">
                         <p>
                             <b>1)</b>
                             Um projeto de pesquisa nada mais é do que um trabalho acadêmico desenvolvido dentro de um conglomerado de metodologias usadas por cientistas, pesquisadores e estudiosos na busca do conhecimento. O projeto de pesquisa possui um conjunto de regras básicas para desenvolver uma pesquisa a fim de produzir novos conceitos, bem como corrigir e integrar conhecimentos pré-existentes.
@@ -207,6 +202,32 @@
         </div>
     </div>
 
+    <!-- Modal de mensagem -->
+    <div class="modal" id="message">
+        <div class="modal-background"></div>
+        <div class="modal-content">
+            <article class="message">
+                <div class="message-header">
+                  <p>Mensagem</p>
+                  <button class="delete" aria-label="delete"></button>
+                </div>
+                <div class="message-body">
+                  Esta é uma mensagem
+                </div>
+            </article>
+        </div>
+    </div>
+
+    <div class="modal" id="users">
+        <div class="modal-background"></div>
+        <div class="modal-content">
+            <div class="card">
+                
+            </div>
+        </div>
+        <button class="modal-close is-large" aria-label="close" onclick="toggleModal('#users')"></button>
+    </div>
+
     <!-- Footer -->
     <footer class="footer has-background-darkgreen">
         <div class="container">
@@ -291,19 +312,99 @@
             let ano = dataNasc.getFullYear();
             let dados = `
                 <p class="title is-5">
-                    ${localStorage.nomeCompleto || 'Dado não encontrado'} <br>
+                    ${localStorage.nomeCompleto || 'Não identificado'} <br>
                     <span class="title is-6 is-italic">${localStorage.nomeSocial ? '('+localStorage.nomeSocial+')' : ''}</span>
                 </p>
-                <p>RG: ${localStorage.rg || 'Dado não encontrado'} &bull; ${localStorage.dataDeNascimento ? dia+'/'+mes+'/'+ano : 'Dado não encontrado'}</p>
+                <p>RG: ${localStorage.rg || 'Não tem'} &bull; ${localStorage.dataDeNascimento ? dia+'/'+mes+'/'+ano : '??/??/????'}</p>
                 <p class="title is-6">Contatos</p>
                 <p>
-                    ${localStorage.celular || 'Dado não encontrado'} <br>
-                    ${localStorage.email || 'Dado não encontrado'}
+                    ${localStorage.celular || 'Não tem'} <br>
+                    ${localStorage.email || 'Não tem'}
                 </p>
             `
 
             $("#dados").html(dados);
+
+            if (!localStorage.celular == 0) {
+                loadAdmOptions();
+            } else {
+                $("#actionsList").append(`
+                    <a class="panel-block is-active" onclick="toggleModal('#actions')">
+                        <span class="panel-icon">
+                        <i class="fas fa-book" aria-hidden="true"></i>
+                        </span>
+                        Responder questionário
+                    </a>
+                `)
+            }
         })
+
+        let users = null;
+
+        function showUser(inscricao) {
+            let user = users.filter(user => user.inscricao == inscricao)[0];
+            if (!user) return;
+
+            let template = {
+                with: (inscricao, nome, nomeSocial, dataDeNascimento, celular, email, rg, img) => {
+                    let dataNasc = new Date(dataDeNascimento);
+                    let dia = dataNasc.getDate();
+                    let mes = dataNasc.getMonth()+1 < 10 ? '0' + (dataNasc.getMonth()+1) : dataNasc.getMonth()+1;
+                    let ano = dataNasc.getFullYear();
+
+                    return `
+                    <header class="card-image">
+                        <figure class="image is-4by3">
+                            <img src="${img}" alt="Documento de concluão">
+                        </figure>
+                    </header>
+                    <div class="card-content">
+                        <p class="title is-4">${nome} ${nomeSocial ? '('+nomeSocial+')' : ''}</p>
+                        <p class="subtitle is-6">${email}</p>
+                        
+                        <div class="content">
+                            <p>RG: ${rg || 'Não tem'} &bull; ${dataDeNascimento ? dia+'/'+mes+'/'+ano : '??/??/????'}</p>
+                            <br>
+                            <p>
+                                ${celular || 'Não tem'} <br>
+                            </p>
+                            <form action="http://stac-prd.us-east-1.elasticbeanstalk.com/adm/status" method="PUT" onsubmit="confirmForm(event)">
+                                <input type="hidden" name="inscricao" value="${inscricao}">
+                            </form>
+                        </div>
+                    </div>
+                    <footer class="card-footer">
+                        <a href="#" onclick="$('#users form').submit()" class="card-footer-item has-background-link has-text-white">Aprovar</a>
+                        <a href="#" class="card-footer-item" onclick="toggleModal('#users')">Sair</a>
+                    </footer>
+                    `
+                }
+            }
+
+            $("#users .card").html(template.with(inscricao, user.nome, user.nomeSocial, user.dataDeNascimento, user.celular, user.email, user.rg, user.docConclusao));
+        }
+
+        function loadAdmOptions() {
+            let template = {
+                with: (inscricao, name) => `
+                    <a class="panel-block" onclick="showUser('${inscricao}')">
+                        <span class="panel-icon">
+                        <i class="fas fa-book" aria-hidden="true"></i>
+                        </span>
+                        ${name}
+                    </a>
+                `
+            }
+
+            getUsers()
+                .then(usrs => {
+                    users = usrs;
+                    users.forEach(user => {
+                        $('#actionList').append(template.with(user.inscricao, user.nomeCompleto));
+                    });
+                })
+                .catch(({ error, status }) => showMessage(`Falha ao buscar os candidatos (${status})`, error || "Um erro ocorreu. Por favor, tente novamente mais tarde.", true));
+        }
     </script>
 </body>
 </html>
