@@ -53,7 +53,7 @@ function cadastro(e) {
       method: 'POST',
       body: data,
       headers: {
-        'Content-Type': 'application/form-data'
+        'Content-Type': 'application/x-www-form-urlencoded'
       }
     })
     .then(getBody) // Tenta obter o resultado de sucesso na requisição
