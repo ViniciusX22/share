@@ -337,7 +337,7 @@ function showMessage(titulo, msg, error, cb) {
 
 function getBody(response) {
     return new Promise((resolve, reject) => {
-            if(response.body)
+            if (response.body)
                 response.body.getReader().read().then(({value}) => {
                     if (value) {
                         response.value = value.reduce((arr, n) => arr += String.fromCharCode(n), '');
