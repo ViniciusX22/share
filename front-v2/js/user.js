@@ -115,7 +115,7 @@ function getUsers() {
     return new Promise((resolve, reject) => {
         query('http://stac-prd.us-east-1.elasticbeanstalk.com/adm/fase/0', {
             headers: {
-                'Authorization': localStorage.token,
+                'Authorization': 'Bearer ' + localStorage.token,
                 'Content-Type': 'application/x-www-form-urlencoded'
             }
         }).then(resolve).catch(reject);
