@@ -1,4 +1,4 @@
-var scrollPosition = 60;
+var scrollPosition = 165;
 var burgerActive = windowScrolled = false;
 
 $(document).ready(function() {
@@ -54,10 +54,17 @@ function toggleNavBackground() {
     if (isAtPosition() && !windowScrolled || $('.navbar').hasClass('is-dark-green')) {
         $(".navbar").addClass('scrolled');
         $('.navbar-item').addClass('scrolled-text');
+
+        $('#logo-content').css('position', 'relative');
+        // TweenMax.to($('#logo-content'), 2, {top: 10, scale: 0.7});
+
+        console.log('222');
+
         windowScrolled = true;
     } else if (!isAtPosition() && !burgerActive && !$('.navbar').hasClass('is-dark-green')) {
         $(".navbar").removeClass('scrolled');
         $('.navbar-item').removeClass('scrolled-text');
+
         windowScrolled = false;
     }
 }
@@ -82,9 +89,8 @@ function isAtPosition() {
 }
 
 function goTo(section) {
-    if ($(document).width() <= 1069) {
+    if ($(document).width() <= 1069 && burgerActive) {
         toggleNavbar();
-        console.log('mudo', $(window).width());
     }
     $('body').animate({
         scrollTop: $(section).offset().top - 80

@@ -1,7 +1,7 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Prêmio STAC de Sustentabilidade</title>
     <link rel="stylesheet" href="css/mystyles.css">
@@ -12,8 +12,8 @@
     <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
         <div class="container">
             <div class="navbar-brand">
-                <a class="navbar-item" href="#">
-                    <img src="img/logo.png" height="5rem" >
+                <a class="navbar-item" id="logo-navbar">
+                    <img src="img/logo.png" id="logo-content" height="5rem">
                 </a>
             
                 <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
@@ -49,13 +49,22 @@
                         <div class="tile is-vertical">
                             <div class="tile is-parent">
                                 <div class="tile is-child">
-                                    <h1 class="title is-1 is-size-3-mobile is-uppercase has-text-white">
-                                            Prêmio STAC <br>
-                                        de Sustentabilidade
-                                    </h1>
-                                    <h2 class="subtitle is-size-6-mobile has-text-weight-bold has-text-white">
-                                        Ciência e Tecnologia fazendo a diferença
-                                    </h2>
+                                    <!-- <article class="media">
+                                        <figure class="media-left">
+                                            <p class="image is-96x96" id="logo-content">
+                                                <img src="img/logo.png">
+                                            </p>
+                                        </figure>
+                                        <div class="media-content" style="overflow: hidden;"> -->
+                                            <h1 class="title is-1 is-size-3-mobile is-uppercase has-text-white">
+                                                    Prêmio STAC <br>
+                                                de Sustentabilidade
+                                            </h1>
+                                            <h2 class="subtitle is-size-6-mobile has-text-weight-bold has-text-white">
+                                                Ciência e Tecnologia fazendo a diferença
+                                            </h2>
+                                        <!-- </div>
+                                    </article> -->
                                 </div>
                             </div>
                             <div class="tile">
@@ -64,8 +73,9 @@
                                         <h2 class="subtitle is-uppercase has-text-centered">
                                             processo seletivo de avaliadores
                                         </h2>
+                                        <br>
                                         <h2 class="subtitle is-6 has-text-centered is-uppercase">
-                                            <a class="has-text-danger has-text-weight-bold" href="cadastro.html">faça aqui sua inscrição</a>
+                                            <a class="has-text-danger has-text-weight-bold" onclick="showMessage('Indisponível no momento', `Estamos ajeitando as coisas para você! Em breve estará tudo pronto <span class='icon'><i class='far fa-smile-beam'></i></span>'`, 'i')">faça aqui sua inscrição</a>
                                         </h2>
                                         <br>
                                         <h2 class="subtitle is-6 has-text-centered is-uppercase">
@@ -73,19 +83,23 @@
                                                 Consulte o calendário oficial
                                             </a>
                                             <br>
-                                            <a class="has-text-link" href="#">Consulte o edital oficial</a>
+                                            <a class="has-text-link" href="./docs/edital-avaliadores.pdf" target="_blank">Consulte o edital oficial</a>
                                         </h2>
                                     </div>
                                     <div class="is-divider-vertical"></div>
                                     <div class="tile is-child box">
-                                        <h2 class="subtitle is-uppercase has-text-centered">Projetos participantes</h2>
+                                        <h2 class="subtitle is-uppercase has-text-centered">Processo seletivo de projetos participantes</h2>
                                         <br>
                                         <h2 class="subtitle is-6 has-text-centered is-uppercase">
                                             <p class="has-text-weight-bold">inscrições em breve</p>
                                         </h2>
                                         <br>
                                         <h2 class="subtitle is-6 is-uppercase has-text-centered">
-                                            Publicação do calendário e edital oficiais - 03/06
+                                            <a class="has-text-link" href="#" onclick="goTo('#calendario-area')">
+                                                Consulte o calendário oficial
+                                            </a>
+                                            <br>
+                                            <a class="has-text-link" href="./docs/edital-projetos.pdf" target="_blank">Consulte o edital oficial</a>
                                         </h2>
                                     </div>
                                 </div>
@@ -121,7 +135,7 @@
                                 </p>
                             </div>
                         </form>
-                        <a href="area-candidato/" class="button is-medium is-link" id="accessButton" style="display: none;">Acessar</a>
+                        <a href="area-candidato/index.html" class="button is-medium is-link" id="accessButton" style="display: none;">Acessar</a>
                         <a class="button is-large is-loading is-text" id="loadingButton">Carregando</a>
                     </div>
                 </div>
@@ -223,7 +237,7 @@
     <section class="hero is-fullwidth-with-navbar is-light section-area" id="calendario-area">
         <div class="hero-head">
             <div class="container">
-                <p class="subtitle is-4 is-size-5-mobile is-uppercase has-text-centered">Processo seletivo de avaliadores</p>
+                <p class="subtitle is-4 is-size-5-mobile is-uppercase has-text-centered">Processos seletivos</p>
                 <p class="title is-2 is-size-3-mobile has-text-centered is-uppercase">
                     Calendário Oficial
                 </p>
@@ -235,60 +249,49 @@
                 <div class="tile is-ancestor">
                     <div class="tile is-parent">
                         <div class="tile is-child box">
-                            <div class="content">
-                                <p class="title has-text-centered">1<sup>a</sup> Fase</p>    
-                                <ul>
+                            <div class="content has-text-centered">
+                                <p class="title has-text-centered">Avaliadores</p>    
+                                <ul class="has-text-left">
                                     <li>
-                                        20/05 até 03/06:<br>
+                                        10/07 até 24/07:<br>
                                         Período de inscrição no <span class="is-italic">site</span>.
                                     </li>
-                                    <li>21/05 até 05/06:<br> Realização do questionário <span class="is-italic">online</span>.</li>
-                                    <li>05/06:<br> Prazo final para realização do questionário <span class="is-italic">online</span>.</li>
-                                    <li>09/06:<br> Divulgação da lista de aprovados na 1ª Fase.</li>
+                                    <li>10/07 até 25/07:<br> Realização do questionário <span class="is-italic">online</span>.</li>
+                                    <li>25/07:<br> Prazo final para realização do questionário <span class="is-italic">online</span>.</li>
                                 </ul>
+                                <br>
+                                <p class="title is-4">Resultados</p>
+                                <ul class="has-text-left">
+                                    <li>31/07: 1ª Chamada</li>
+                                    <li>01/08: 2ª Chamada</li>
+                                    <li>02/08: 3ª Chamada</li>
+                                    <li>03/08: 4ª Chamada</li>
+                                    <li>04/08: 5ª Chamada</li>
+                                    <li>04/08: Declaração de interesse por vaga</li>
+                                    <li>07/08: Prazo máximo para a declaração de interesse por vaga</li>
+                                    <li>08/08: Lista final de convocados</li>
+                                </ul>
+                                <button class="button is-link" style="margin-top: 5em;" onclick="toggleModal('#resultados')">Consulte aqui</button>
                             </div>
                         </div>
                     </div>
                     <div class="tile is-parent">
                         <div class="tile is-child box">
                             <div class="content">
-                                <p class="title has-text-centered">2<sup>a</sup> Fase</p>    
+                                <p class="title has-text-centered">Projetos</p>    
                                 <ul>
-                                    <li>
-                                        <span class="has-text-weight-semibold">1ª Etapa: Entevista</span>
-                                        <ul>
-                                            <li>10/06: <br>Liberação do formulário <span class="is-italic">online</span> para agendamento de entrevista.</li>
-                                            <li>10/06 até 14/06: <br>Período de agendamento <span class="is-italic">online</span> de entrevistas</li>
-                                            <li>17/06 até 28/06:<br> Período de realização das entrevistas</li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <span class="has-text-weight-semibold">2ª Etapa: Produção textual</span>
-                                        <ul>
-                                            <li>10/06: <br>Liberação de acesso à proposta de produção textual.</li>
-                                            <li>10/06 até 21/06:<br> Período para a realização da produção textual.</li>
-                                            <li>21/06:<br> Data final para a entrega da produção textual pelo <span class="is-italic">site</span></li>
-                                        </ul>
-                                    </li>
+                                    <li>10/07: Início das inscrições de projetos.</li>
+                                    <li>23/08: Prazo final para inscrição de projetos.</li>
                                 </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="tile is-parent">
-                        <div class="tile is-child box has-text-centered">
-                            <div class="content">
-                                <p class="title">Resultados</p>
+                                <br>
+                                <br class="is-hidden-mobile">
+                                <br class="is-hidden-mobile">
+                                <br class="is-hidden-mobile">
+                                <br class="is-hidden-mobile">
+                                <p class="title is-4 has-text-centered">Resultados</p>
                                 <ul class="has-text-left">
-                                    <li>08/07: 1ª Chamada</li>
-                                    <li>09/07: 2ª Chamada</li>
-                                    <li>10/07: 3ª Chamada</li>
-                                    <li>11/07: 4ª Chamada</li>
-                                    <li>12/07: 5ª Chamada</li>
-                                    <li>13/07: Declaração de interesse por vaga</li>
-                                    <li>15/07: Prazo máximo para a declaração de interesse por vaga</li>
-                                    <li>16/07: Lista final de convocados</li>
+                                    <li>26/08: Divulgação dos projetos selecionados.</li>
                                 </ul>
-                                <button class="button is-link" style="margin-top: 5em;" onclick="toggleModal('#resultados')">Consulte aqui</button>
                             </div>
                         </div>
                     </div>
@@ -338,7 +341,7 @@
         <div class="modal-background"></div>
         <div class="modal-card">
             <header class="modal-card-head">
-                <p class="modal-card-title">3<sup>a</sup> Edição do Prêmio STAC de Sustentabilidade</p>
+                <p class="modal-card-title">3<sup>a</sup> Edição do Prêmio STAC <br class="is-hidden-tablet">de Sustentabilidade</p>
                 <button class="delete" aria-label="close" onclick="toggleModal('#infos')"></button>
             </header>
             <section class="modal-card-body">
@@ -349,30 +352,32 @@
                         </h2>
                         <div class="box">
                             <h2 class="subtitle is-6 has-text-centered is-uppercase">
-                                <a class="has-text-link" href="#" onclick="goTo('#calendario-area')">
+                                <a class="has-text-link" href="#" onclick="toggleModal('#infos');goTo('#calendario-area')">
                                     Consulte o calendário oficial
                                 </a>
                             </h2>
                             <h2 class="subtitle is-6 has-text-centered is-uppercase">
-                                <a class="has-text-link" href="#">Consulte o edital oficial</a>
+                                <a class="has-text-link" href="./docs/edital-avaliadores.pdf" target="_blank">Consulte o edital oficial</a>
                             </h2>
                             <h2 class="subtitle is-6 has-text-centered is-uppercase">
-                                <a class="has-text-danger has-text-weight-bold" href="cadastro.html">faça aqui sua inscrição</a>
+                                <a class="has-text-danger has-text-weight-bold" onclick="showMessage('Indisponível no momento', `Estamos ajeitando as coisas para você! Em breve estará tudo pronto <span class='icon'><i class='far fa-smile-beam'></i></span>'`, 'i')">inscrever-se</a>
                             </h2>
                         </div>
                     </div>
                     <div class="is-divider-vertical"></div>
                     <div class="column">
-                        <h2 class="subtitle is-uppercase has-text-centered">Projetos participantes</h2>
+                        <h2 class="subtitle is-uppercase has-text-centered">Processo seletivo de projetos participantes</h2>
                         <div class="box">
                             <h2 class="subtitle is-6 is-uppercase has-text-centered">
-                                Consulte aqui o calendário oficial - em breve
+                                <a class="has-text-link" href="#" onclick="toggleModal('#infos');goTo('#calendario-area')">
+                                    Consulte o calendário oficial
+                                </a>
                             </h2>
                             <h2 class="subtitle is-6 is-uppercase has-text-centered">
-                                Consulte aqui o edital oficial - em breve
+                                <a class="has-text-link" href="./docs/edital-projetos.pdf" target="_blank">Consulte o edital oficial</a>
                             </h2>
                             <h2 class="subtitle is-6 has-text-centered is-uppercase">
-                                <p class="has-text-weight-bold">faça aqui a inscrição do seu projeto</p>
+                                <p class="has-text-weight-bold">inscrições em breve</p>
                             </h2>
                         </div>
                     </div>
@@ -383,6 +388,22 @@
             </footer>
         </div>
         <button class="modal-close is-large" aria-label="close" onclick="toggleModal('#infos')"></button>
+    </div>
+
+    <!-- Modal de mensagem -->
+    <div class="modal" id="message">
+        <div class="modal-background"></div>
+        <div class="modal-content">
+            <article class="message">
+                <div class="message-header">
+                  <p>Mensagem</p>
+                  <button class="delete" aria-label="delete"></button>
+                </div>
+                <div class="message-body">
+                  Esta é uma mensagem
+                </div>
+            </article>
+        </div>
     </div>
 
     <!-- Footer -->
@@ -455,13 +476,21 @@
                 </div>
             </nav>
             <br><br>
-            <p class="heading has-text-centered has-text-white">Desenvolvido por <a class="has-text-white" href="https://www.linkedin.com/in/pedro-madeira-102765165/" target="_blank">Pedro Madeira</a> && <a class="has-text-white" href="https://www.linkedin.com/in/vinicius-xavier-937b61138/" target="_blank">Vinicius Xavier</a></p>
+            <nav class="level">
+                <div class="level-item">
+                    <p class="heading has-text-centered has-text-white">Desenvolvido por <a class="has-text-white" href="https://www.linkedin.com/in/pedro-madeira-102765165/" target="_blank">Pedro Madeira</a> && <a class="has-text-white" href="https://www.linkedin.com/in/vinicius-xavier-937b61138/" target="_blank">Vinicius Xavier</a></p>
+                </div>
+                <figure class="image is-96x96" style="margin-right: auto; margin-left: auto;">
+                    <img src="./img/sonda.jpeg" alt="Sonda Curiosity" style="margin-top: 25%;">
+                </figure>
+            </nav>
         </div>
     </footer>
     <script
         src="https://code.jquery.com/jquery-3.4.1.min.js"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
         crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
     <script src="js/menu-controller.js"></script>
     <script src="js/main.js"></script>
     <script src="js/user.js"></script>
@@ -475,6 +504,8 @@
                 $("#loginForm").show();
             }
             $("#loadingButton").hide();
+            
+            // TweenMax.to('#logo-content', 2, {top: -110, scale: 0.7});
         })
     </script>
 </body>

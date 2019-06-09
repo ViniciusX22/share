@@ -8,7 +8,7 @@
     <link href="img/logo.png" rel="icon">
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
 </head>
-<body>
+<body onload="location.href = '/'">
     <nav class="navbar scrolled is-dark-green" role="navigation" aria-label="main navigation">
         <div class="container">
             <div class="navbar-brand">
@@ -25,14 +25,11 @@
             
             <div class="navbar-menu">
                 <div class="navbar-end">
-                    <a class="navbar-item" href="index.html">
+                    <a class="navbar-item" href="/">
                         Início
                     </a>
                     <a class="navbar-item" onclick="toggleModal('#infos')">
                         Informações
-                    </a>
-                    <a class="navbar-item" href="index.html#sobre">
-                        Sobre nós
                     </a>
                     <a class="navbar-item" onclick="goTo('.footer')">
                         Contato
@@ -73,7 +70,7 @@
                                     </button>
                                 </div>
                                 <div class="control is-expanded">
-                                    <input type="tel" id="telefone" name="celular" class="input" placeholder="e.g. 11992941821" pattern="\d{11}" required>
+                                    <input type="tel" id="telefone" name="celular" class="input" placeholder="e.g. 11992941821" pattern="^\d{11}$" required>
                                 </div>
                             </div>
                             <div class="field">
@@ -105,7 +102,7 @@
                         <div class="field-body">
                             <div class="field">
                                 <div class="control">
-                                    <input type="text" id="rg" name="rg" class="input" placeholder="e.g. 123456789" pattern="\d{8}[A-Za-z0-9]" required>
+                                    <input type="text" id="rg" name="rg" class="input" placeholder="e.g. 123456789" pattern="^\d{8}[A-Za-z0-9]$" required>
                                 </div>
                             </div>
                         </div>
@@ -117,7 +114,7 @@
                         <div class="field-body">
                             <div class="field">
                                 <div class="control">
-                                    <input type="text" id="cep" name="cep" class="input" placeholder="e.g. 12345678" pattern="\d{8}" required>
+                                    <input type="text" id="cep" name="cep" class="input" placeholder="e.g. 12345678" pattern="^\d{8}$" required>
                                 </div>
                             </div>
                         </div>
@@ -146,7 +143,7 @@
                     </div>
                     <div class="field is-horizontal">
                         <div class="field-label">
-                            <label for="senha" class="label">Senha</label>
+                            <label for="senha" class="label">Senha <span class="has-text-danger">*</span></label>
                         </div>
                         <div class="field-body">
                             <div class="field">
@@ -166,9 +163,14 @@
                         <div class="field-label">
                             <label class="label">
                                 Documento de conclusão <span class="has-text-danger">*</span>
-                                <span class="icon is-small tooltip is-tooltip-multiline is-tooltip-info" data-tooltip="Imagem de um documento que comprova sua conclusão do Ensino Médio">
+                                <span class="icon is-small" id="doc-tooltip">
                                     <i class="fas fa-question-circle"></i>
                                 </span>
+                                <div id="popup" class="notification is-info popper">
+                                    <p class="heading is-6">
+                                       Imagem do documento que comprova sua conclusão do Ensino Médio
+                                    </p>
+                                </div>
                             </label>
                         </div>
                         <div class="field-body">
@@ -214,7 +216,7 @@
         <div class="modal-background"></div>
         <div class="modal-card">
             <header class="modal-card-head">
-                <p class="modal-card-title">3<sup>a</sup> Edição do Prêmio STAC de Sustentabilidade</p>
+                <p class="modal-card-title">3<sup>a</sup> Edição do Prêmio STAC <br class="is-hidden-tablet">de Sustentabilidade</p>
                 <button class="delete" aria-label="close" onclick="toggleModal('#infos')"></button>
             </header>
             <section class="modal-card-body">
@@ -225,37 +227,38 @@
                         </h2>
                         <div class="box">
                             <h2 class="subtitle is-6 has-text-centered is-uppercase">
-                                <a class="has-text-link" href="#" onclick="goTo('#calendario-area')">
+                                <a class="has-text-link" href="/#calendario" target="_blank">
                                     Consulte o calendário oficial
                                 </a>
                             </h2>
+                            <br>
+                            <br>
                             <h2 class="subtitle is-6 has-text-centered is-uppercase">
-                                <a class="has-text-link" href="#">Consulte o edital oficial</a>
-                            </h2>
-                            <h2 class="subtitle is-6 has-text-centered is-uppercase">
-                                <a class="has-text-danger has-text-weight-bold" href="cadastro.html">faça aqui sua inscrição</a>
+                                <a class="has-text-link" href="./docs/edital-avaliadores.pdf" target="_blank">Consulte o edital oficial</a>
                             </h2>
                         </div>
                     </div>
                     <div class="is-divider-vertical"></div>
                     <div class="column">
-                        <h2 class="subtitle is-uppercase has-text-centered">Projetos participantes</h2>
+                        <h2 class="subtitle is-uppercase has-text-centered">Processo seletivo de projetos participantes</h2>
                         <div class="box">
                             <h2 class="subtitle is-6 is-uppercase has-text-centered">
-                                Consulte aqui o calendário oficial - em breve
+                                <a class="has-text-link" href="/#calendario" target="_blank">
+                                    Consulte o calendário oficial
+                                </a>
                             </h2>
                             <h2 class="subtitle is-6 is-uppercase has-text-centered">
-                                Consulte aqui o edital oficial - em breve
+                                <a class="has-text-link" href="./docs/edital-projetos.pdf" target="_blank">Consulte o edital oficial</a>
                             </h2>
                             <h2 class="subtitle is-6 has-text-centered is-uppercase">
-                                <p class="has-text-weight-bold">faça aqui a inscrição do seu projeto</p>
+                                <p class="has-text-weight-bold">inscrições em breve</p>
                             </h2>
                         </div>
                     </div>
                 </div>
             </section>
             <footer class="modal-card-foot">
-                <button class="button is-success" onclick="toggleModal('#infos')">Ok</button>
+                <button class="button is-success" style="margin-right: auto; margin-left: auto;" onclick="toggleModal('#infos')">Entendi</button>
             </footer>
         </div>
         <button class="modal-close is-large" aria-label="close" onclick="toggleModal('#infos')"></button>
@@ -347,10 +350,14 @@
                 </div>
             </nav>
             <br><br>
-            <p class="heading has-text-centered has-text-white">Desenvolvido por Pedro Madeira e Vinicius Xavier</p>
+            <p class="heading has-text-centered has-text-white">Desenvolvido por <a class="has-text-white" href="https://www.linkedin.com/in/pedro-madeira-102765165/" target="_blank">Pedro Madeira</a> && <a class="has-text-white" href="https://www.linkedin.com/in/vinicius-xavier-937b61138/" target="_blank">Vinicius Xavier</a></p>
         </div>
     </footer>
-    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script
+        src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/popper.js"></script>
     <script src="js/main.js"></script>
     <script src="js/user.js"></script>
     <script>
@@ -367,6 +374,14 @@
                            !($(e.target).attr('pattern') ? new RegExp($(e.target).attr('pattern')).test($(e.target).val()) : false)) {
                     $(e.target).addClass('is-danger').removeClass('is-success');
                 }
+            });
+
+            
+            $("#doc-tooltip").hover(() => {
+                $('#popup').toggle();
+                new Popper($('#doc-tooltip'), $('#popup'), {
+                    placement: 'top'
+                })
             });
         });
 

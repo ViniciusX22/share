@@ -8232,6 +8232,9 @@ label.panel-block {
   margin-right: auto;
   margin-left: auto; }
 
+#calendario-area .box {
+  padding: 3em; }
+
 .navbar, .navbar-item {
   transition-duration: 0.5s; }
 
@@ -8269,7 +8272,7 @@ label.panel-block {
   background: -moz-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
   background: -webkit-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
   background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
-  background-size: 65% 65%;
+  background-size: 67% 67%;
   background-repeat: no-repeat;
   background-position: center;
   border-radius: 50%; }
@@ -8278,7 +8281,13 @@ label.panel-block {
   border-bottom: 2px solid #00d1b2; }
 
 .footer {
-  padding-bottom: 2em; }
+  padding-bottom: 0; }
+
+.popper {
+  display: none;
+  z-index: 9999;
+  padding: .7em;
+  margin: .5em; }
 
 @media (max-width: 768px) {
   .title-modified {
@@ -8298,8 +8307,9 @@ label.panel-block {
 @media (max-width: 1088px) {
   #inicio {
     background-image: url("../img/Tela de fundo site 2019.jpg");
-    background-size: 1200px 100%;
+    background-size: 1200px 100vh;
     background-position-x: center;
-    background-attachment: fixed; }
+    background-attachment: fixed;
+    background-repeat: no-repeat; }
   #obrigatorios {
     text-indent: 0em; } }
