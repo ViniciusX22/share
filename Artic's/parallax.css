@@ -1,0 +1,81 @@
+.parallax-wrapper {
+  /* O elemento precisa ter uma altura definida para o efeito
+funcionar */
+  height: 100vh;
+
+  /* O tamanho das imagens irá criar uma barra de rolagem 
+horizontal. Iremos desativar isso */
+  overflow-x: hidden;
+
+  /* A propriedade perspective indica a "distância" entre o 
+usuário e o plano Z.
+Quanto maior o valor, mais perto o elemento estará do usuário.
+Se for um valor negativo,
+mais distante esse elemento estará.
+*/
+  perspective: 1px;
+
+  /* O transform-style indica se os elementos filhos devem ser 
+transformados em um plano 2D ou 3D.
+O valor preserve-3d indica que os elementos devem seguir o 
+espaço 3D indicado.
+*/
+  transform-style: preserve-3d;
+}
+
+.has-parallax {
+  /* Indicamos "relative" para depois podermos
+posicionar os elementos filhos com "absolute" */
+  position: relative;
+
+  /* Para manter a transformação em espaço 3D, indicamos o mesmo 
+valor do elemento pai (preserve-3d).
+Para não precisar repetir o valor "preserve-3d", você pode usar 
+o valor "inherit", que fará
+com que ele pegue o valor do elemento pai.
+*/
+  transform-style: inherit;
+}
+
+.has-parallax::before {
+  /* Aqui nós iremos configurar a imagem que irá aparecer no fundo
+da seção.
+Como vimos, o Parallax precisa de elementos diferentes, então 
+não daria certo se colocássemos o fundo diretamente na 
+<section>. Então criaremos um pseudo-elemento para isso.
+*/
+
+  /* Isso servirá para que o pseudo-elemento possua as mesmas
+dimensões do elemento <section> */
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  /* O z-index negativo irá garantir que a imagem não fique por 
+cima de outros elementos */
+  z-index: -1;
+
+  /* Aqui estamos fazendo com que a imagem de fundo cubra todo o
+elemento */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center top;
+
+  /* Aqui está a brincadeira. Lembra que o nosso "wrapper" está
+mais próximo do usuário?
+Aqui nós faremos com que o nosso pseudo-elemento, que está com
+a imagem de fundo, fique mais longe do usuário. Para isso, 
+basta passar um valor negativo para "translateZ()".
+
+Como a imagem irá para longe do usuário, ela parecerá menor. 
+Então usamos o "scale()" para aumentar o tamanho da imagem.
+
+Como o elemento estará mais longe do usuário, ele irá se mover
+mais lentamente do que os elementos mais próximos conforme 
+a gente role a página.
+*/
+  transform: translateZ(-1px) scale(2);
+}
