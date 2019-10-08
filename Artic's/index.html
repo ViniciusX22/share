@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Artic's</title>
     <link
-      href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto+Condensed|Roboto+Slab:700&display=swap"
+      href="https://fonts.googleapis.com/css?family=Montserrat:600|Open+Sans|Roboto+Condensed|Roboto+Slab:700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="stylesheet.css" />
@@ -29,6 +29,13 @@
     </script>
   </head>
   <body>
+    <div id="fb-root"></div>
+    <script
+      async
+      defer
+      crossorigin="anonymous"
+      src="https://connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v4.0"
+    ></script>
     <nav class="navbar">
       <div class="navbar-left">
         <img src="https://via.placeholder.com/150x50" alt="Logo" />
@@ -67,8 +74,10 @@
       </div>
     </nav>
     <main>
-      <section class="hero is-fullheight-with-navbar slider"></section>
-      <section class="section is-large">
+      <section
+        class="hero is-fullheight-with-navbar is-medium-mobile slider"
+      ></section>
+      <section class="section is-medium" style="margin-top: 3em;">
         <div class="container">
           <div class="columns">
             <div
@@ -150,7 +159,48 @@
           </div>
         </div>
       </section>
-      <section class="section" style="margin-bottom: 2em">
+      <section
+        class="section"
+        style="background: linear-gradient(to bottom, white, white 1%, #f8f8f8 65%, white);
+      padding: 10em 0;"
+      >
+        <div class="container" style="padding: 0 4em;">
+          <div class="columns">
+            <div class="column is-two-third content has-margin-4">
+              <h3
+                class="title is-italic"
+                style="font-size: 2em; color: dimgrey; margin-top: -2em;"
+              >
+                Confira o que está rolando na página da
+                <span class="artics">Artic's</span>
+              </h3>
+            </div>
+            <div class="column is-one-third">
+              <div
+                class="fb-page"
+                data-href="https://www.facebook.com/modaartics/"
+                data-tabs="timeline"
+                data-width="380"
+                data-height="410"
+                data-small-header="false"
+                data-adapt-container-width="false"
+                data-hide-cover="false"
+                data-show-facepile="true"
+              >
+                <blockquote
+                  cite="https://www.facebook.com/modaartics/"
+                  class="fb-xfbml-parse-ignore"
+                >
+                  <a href="https://www.facebook.com/modaartics/"
+                    >Artic&#039;S</a
+                  >
+                </blockquote>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="section" style="margin: 2em 0;">
         <div class="container is-narrow">
           <hr class="line" />
           <h2 class="title is-uppercase" style="margin: 1em 0;">
@@ -216,13 +266,13 @@
             <a class="has-text-white is-uppercase" href="#">Início</a>
           </p>
           <p class="column is-hidden-mobile">
-            <a class="has-text-white is-uppercase" href="#">Sobre nós</a>
+            <a class="has-text-white is-uppercase" href="./sobre">Sobre nós</a>
           </p>
           <p class="column is-hidden-mobile">
             <a class="has-text-white is-uppercase" href="#">Conteúdos</a>
           </p>
           <p class="column is-hidden-mobile">
-            <a class="has-text-white is-uppercase" href="#">Contato</a>
+            <a class="has-text-white is-uppercase" href="./contato">Contato</a>
           </p>
           <p class="column is-hidden-mobile">
             <a class="has-text-white is-uppercase" href="#">Produtos</a>

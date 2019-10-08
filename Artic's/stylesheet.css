@@ -129,6 +129,39 @@ Layout Style
     color: white;
   }
 
+  .is-small-desktop,
+  .is-medium-desktop,
+  .is-large-desktop,
+  .is-fullheight-desktop,
+  .is-fullheight-with-navbar-desktop {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    padding: 0;
+  }
+
+  .is-small-desktop {
+    height: 35vh !important;
+  }
+
+  .is-medium-desktop {
+    height: 50vh !important;
+  }
+
+  .is-large-desktop {
+    height: 75vh !important;
+  }
+
+  .is-fullheight-desktop {
+    height: 100vh !important;
+  }
+
   .navbar-burguer,
   .navbar-hidden {
     display: none;
@@ -270,6 +303,39 @@ Layout Style
 @media only screen and (max-width: 47.9375em) {
   a:hover {
     color: inherit !important;
+  }
+
+  .is-small-mobile,
+  .is-medium-mobile,
+  .is-large-mobile,
+  .is-fullheight-mobile,
+  .is-fullheight-with-navbar-mobile {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    padding: 0;
+  }
+
+  .is-small-mobile {
+    height: 35vh !important;
+  }
+
+  .is-medium-mobile {
+    height: 50vh !important;
+  }
+
+  .is-large-mobile {
+    height: 75vh !important;
+  }
+
+  .is-fullheight-mobile {
+    height: 100vh !important;
   }
 
   .remove-gutter-xs {
@@ -496,6 +562,7 @@ Layout Style
   padding: 1em;
 }
 
+.is-small,
 .is-medium,
 .is-large,
 .is-fullheight,
@@ -510,6 +577,10 @@ Layout Style
   -ms-flex-align: center;
   align-items: center;
   padding: 0;
+}
+
+.is-small {
+  height: 35vh;
 }
 
 .is-medium {
@@ -667,7 +738,7 @@ Layout Style
 /* ********** */
 
 .slider {
-  background-image: url("https://via.placeholder.com/1200x300");
+  background-image: url("https://via.placeholder.com/1300x600");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -682,6 +753,7 @@ Layout Style
   background-position: center;
   /* background-attachment: fixed; */
   background-size: cover;
+  background-repeat: no-repeat;
   content: "";
   position: absolute;
   top: 0;
@@ -692,15 +764,15 @@ Layout Style
 }
 
 .img-vision::before {
-  background-image: url(https://via.placeholder.com/1200x300);
+  background-image: url(https://via.placeholder.com/1200x600);
 }
 
 .img-mission::before {
-  background-image: url(https://via.placeholder.com/1200x300);
+  background-image: url(https://via.placeholder.com/1200x600);
 }
 
 .img-values::before {
-  background-image: url(https://via.placeholder.com/1200x300);
+  background-image: url(https://via.placeholder.com/1200x600);
 }
 
 .content-links {
@@ -777,6 +849,12 @@ Layout Style
 .media-description,
 .media-date {
   font-family: "Open Sans", sans-serif;
+}
+
+.artics {
+  font-family: "Montserrat", sans-serif;
+  color: #505050;
+  text-transform: uppercase;
 }
 
 #links-area {
