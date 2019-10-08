@@ -14,6 +14,19 @@
       src="https://kit.fontawesome.com/93e3f2dfb7.js"
       crossorigin="anonymous"
     ></script>
+    <script>
+      let active = false;
+      function toggleBurguer() {
+        if (!active) {
+          document.querySelector(".navbar-hidden").classList.add("active");
+          document.querySelector("html").classList.add("is-clipped");
+        } else {
+          document.querySelector(".navbar-hidden").classList.remove("active");
+          document.querySelector("html").classList.remove("is-clipped");
+        }
+        active = !active;
+      }
+    </script>
   </head>
   <body>
     <nav class="navbar">
@@ -22,10 +35,10 @@
       </div>
       <div class="navbar-center">
         <ul class="navbar-list">
-          <li><a href="/">Início</a></li>
-          <li><a href="/sobre">Sobre nós</a></li>
+          <li><a href="../">Início</a></li>
+          <li><a href="../sobre">Sobre nós</a></li>
           <li><a href="#">Conteúdos</a></li>
-          <li><a href="/contato">Contato</a></li>
+          <li><a href="../contato">Contato</a></li>
           <li><a href="#">Produtos</a></li>
         </ul>
         <hr class="line" />
@@ -35,6 +48,22 @@
         <a href="#"><i class="fab fa-twitter"></i></a>
         <a href="#"><i class="fab fa-youtube"></i></a>
         <a href="#"><i class="fab fa-instagram"></i></a>
+      </div>
+      <div class="navbar-burguer">
+        <i class="burguer-line fas fa-bars fa-2x" onclick="toggleBurguer()"></i>
+      </div>
+      <div class="navbar-hidden">
+        <i
+          class="burguer-arrow fas fa-arrow-up fa-2x"
+          onclick="toggleBurguer()"
+        ></i>
+        <ul>
+          <li><a href="../">Início</a></li>
+          <li><a href="../sobre">Sobre nós</a></li>
+          <li><a href="#">Conteúdos</a></li>
+          <li><a href="../contato">Contato</a></li>
+          <li><a href="#">Produtos</a></li>
+        </ul>
       </div>
     </nav>
     <main>

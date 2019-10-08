@@ -101,6 +101,39 @@ Layout Style
 }
 
 @media (min-width: 48em) {
+  .colored .fa-facebook-f:hover {
+    color: rgb(61, 61, 194);
+  }
+
+  .colored .fa-twitter:hover {
+    color: rgb(19, 149, 255);
+  }
+
+  .colored .fa-youtube:hover {
+    color: rgb(255, 24, 24);
+  }
+
+  .colored .fa-instagram:hover {
+    background: linear-gradient(
+      45deg,
+      #f09433 0%,
+      #e6683c 25%,
+      #dc2743 50%,
+      #cc2366 75%,
+      #bc1888 100%
+    );
+    background-size: 96% 87%;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 53%;
+    color: white;
+  }
+
+  .navbar-burguer,
+  .navbar-hidden {
+    display: none;
+  }
+
   .has-margin-4 {
     margin-right: 4em !important;
   }
@@ -242,6 +275,57 @@ Layout Style
   .remove-gutter-xs {
     padding-left: 0;
     padding-right: 0;
+  }
+
+  .navbar-center,
+  .navbar-right {
+    display: none;
+  }
+
+  .navbar-burguer {
+    display: block;
+    margin-right: 1em;
+  }
+
+  .burguer-line {
+    color: white !important;
+  }
+
+  .burguer-arrow {
+    color: white;
+    position: absolute;
+    top: 0.75em;
+    right: 0.67em;
+  }
+
+  .navbar-hidden {
+    width: 100vw;
+    height: 100vh;
+    background-color: #1b1b1b;
+    z-index: 10;
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: white;
+    display: none;
+  }
+
+  .active {
+    display: block;
+  }
+
+  .navbar-hidden ul {
+    position: relative;
+    top: 25%;
+    margin: 0;
+    height: 50%;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 2em;
+    text-transform: uppercase;
   }
 
   .is-hidden-mobile {
@@ -499,34 +583,6 @@ Layout Style
 
 /***** Modifiers *****/
 
-.colored .fa-facebook-f:hover {
-  color: rgb(61, 61, 194);
-}
-
-.colored .fa-twitter:hover {
-  color: rgb(19, 149, 255);
-}
-
-.colored .fa-youtube:hover {
-  color: rgb(255, 24, 24);
-}
-
-.colored .fa-instagram:hover {
-  background: linear-gradient(
-    45deg,
-    #f09433 0%,
-    #e6683c 25%,
-    #dc2743 50%,
-    #cc2366 75%,
-    #bc1888 100%
-  );
-  background-size: 96% 87%;
-  background-repeat: no-repeat;
-  background-position: center;
-  border-radius: 53%;
-  color: white;
-}
-
 .is-vertical-centered {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -537,6 +593,10 @@ Layout Style
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+}
+
+.is-clipped {
+  overflow: hidden;
 }
 
 .is-paddingless {
