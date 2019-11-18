@@ -1,0 +1,36 @@
+.has-background-image {
+  position: relative;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.has-background-image::before {
+  background-position: center;
+  /* background-attachment: fixed; */
+  background-size: cover;
+  background-repeat: no-repeat;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: -1;
+}
+
+.img-vision::before {
+  background-image: url(https://via.placeholder.com/1200x600);
+}
+
+.img-mission::before {
+  background-image: url(https://via.placeholder.com/1200x600);
+}
+
+.img-values::before {
+  background-image: url(https://via.placeholder.com/1200x600);
+}
+
+@media (max-width: 47.9375em) {
+  .is-second-mobile {
+    order: 2;
+  }
+}

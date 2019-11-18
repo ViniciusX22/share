@@ -1,0 +1,39 @@
+/************************
+*************************
+Base Style 
+*************************
+*************************/
+
+body {
+  color: #414042;
+  font-family: "Roboto Condensed", sans-serif;
+  font-weight: normal;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: bold;
+  margin: 0;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+  -webkit-transition: color 0.2s;
+  transition: color 0.2s;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+a:hover {
+  color: #dadbe6 !important;
+  -webkit-transition: color 0.2s;
+  transition: color 0.2s;
+}
+
+@media only screen and (max-width: 47.9375em) {
+  a:hover {
+    color: inherit !important;
+  }
+}

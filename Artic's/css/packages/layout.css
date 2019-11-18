@@ -1,0 +1,128 @@
+/************************
+*************************
+Layout Style 
+*************************
+*************************/
+.container {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 1170px;
+}
+
+.section {
+  padding: 1em 1em;
+}
+
+.hero {
+  width: 100%;
+  padding: 1em;
+}
+
+.columns {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.column {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+  position: relative;
+  flex-grow: 1;
+  flex-shrink: 1;
+}
+
+[class*="col-"] {
+  width: 100%;
+  padding-left: 15px;
+  padding-right: 15px;
+  min-height: 1px;
+}
+
+@media (min-width: 48em) {
+  .container.is-narrow {
+    padding-right: 120px;
+    padding-left: 120px;
+  }
+
+  .columns {
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    align-items: center;
+  }
+
+  .column {
+    margin-right: 10px;
+    margin-left: 10px;
+  }
+
+  .column:first-child {
+    margin-left: 0;
+  }
+
+  .column:last-child {
+    margin-right: 0;
+  }
+
+  .column.is-shrinkless {
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+  }
+
+  .column.is-growthless {
+    flex-grow: 0;
+  }
+
+  [class*="column is-"] {
+    -webkit-box-flex: 0;
+    -ms-flex-positive: 0;
+    flex-grow: 0;
+  }
+
+  .column.is-one-half {
+    -ms-flex-preferred-size: 50%;
+    flex-basis: 50%;
+  }
+
+  .column.is-one-fourth {
+    -ms-flex-preferred-size: 25%;
+    flex-basis: 25%;
+  }
+
+  .column.is-one-third {
+    -ms-flex-preferred-size: 33.3333%;
+    flex-basis: 33.3333%;
+  }
+
+  .column.is-one-fifth {
+    -ms-flex-preferred-size: 20%;
+    flex-basis: 20%;
+  }
+
+  .column.is-two-third {
+    -ms-flex-preferred-size: 66.6666%;
+    flex-basis: 66.6666%;
+  }
+}
+
+@media only screen and (max-width: 47.9375em) {
+  .content p {
+    font-size: 0.9em;
+  }
+
+  .container {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
