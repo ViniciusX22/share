@@ -1,1 +1,1 @@
-ready
+<?php echo 'ready';
